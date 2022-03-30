@@ -315,16 +315,31 @@
         <br>
         <div class="row">
             <div class="col">
-                <div>Code : <strong><span id="invoice-code"></span></strong></div>
-                <div>Montant : <strong><span id="invoice-montant"></span></strong></div>
-                <div>Frais : <span id="invoice-frais"></span></div>
+                <h3>Code : <strong><span id="invoice-code"></span></strong></h3>
+                <h3>Montant : <strong><span id="invoice-montant"></span></strong></h3>
+                <h3>Frais : <strong><span id="invoice-frais"></span></strong></h3>
             </div>
             <div class="col">
             </div>
             <div class="col" style="text-align: right;">
-                <div>Tel : (226) 70 48 65 30</div>
-                <div>Tel : (226) 70 02 51 19</div>
-                <div>Tel : (226) 00 00 00 00</div>
+                <div class="row">
+                    <div class="col">Ouaga / Tel : </div>
+                    <div class="col">
+                        <div>Tel : (226) 70 48 65 30</div>
+                        <div>Tel : (226) 76 28 56 35</div>
+                        <div>Tel : (226) 76 81 89 02</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col" style="text-align: right;">
+                <div class="row">
+                    <div class="col">Lomé / Tel : </div>
+                    <div class="col">
+                        <div>Tel : (228) 90 92 97 38</div>
+                        <div>Tel : (228) 70 51 34 98</div>
+                        <div>Tel : (228) 99 95 36 56</div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
