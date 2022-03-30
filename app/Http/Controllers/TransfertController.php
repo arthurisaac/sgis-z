@@ -52,7 +52,7 @@ class TransfertController extends Controller
         $nextId = DB::table('transferts')->max('id') + 1;
         $numeroDeTransfert = time() . '-' . $nextId;
         $transferts = Transfert::all();
-        event(new MyEvent('SGIS-Z'));
+        //event(new MyEvent('SGIS-Z'));
         return view('transferts.create', compact('nextId', 'numeroDeTransfert', 'transferts'));
     }
 
