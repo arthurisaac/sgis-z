@@ -38,9 +38,9 @@ $(document).ready(function () {
                                 showConfirmButton: false,
                                 timer: 1500
                             });
-                            /*setTimeout(() => {
+                            setTimeout(() => {
                                 window.location.reload();
-                            }, 1000);*/
+                            }, 1000);
                         }
                     });
 
@@ -57,6 +57,15 @@ $(document).ready(function () {
 
     $("#editTransfertForm").submit(function (e) {
         e.preventDefault();
+
+        const code = $("#codeTransfertShow").val();
+        const montant = $("#montantTransfertShow").val();
+        const nom = $("#nomBeneficiaireShow").val();
+        $("#invoice-confirmation").removeClass("hide-invoice");
+        $("#invoice-montant-confirmation").html(montant.toLocaleString('fr-FR'));
+        $("#invoice-code-confirmation").html(code);
+        $("#invoice-beneficiaire-confirmation").html(nom);
+
         const transfertID = $("#transfertID").val();
         $.ajax({
             url: `/api/transfert/${transfertID}`,
@@ -71,10 +80,13 @@ $(document).ready(function () {
                         showConfirmButton: false,
                         timer: 1500
                     });
-
-                    setTimeout(() => {
-                        window.location.reload();
-                    }, 1000);
+                    $('#invoice-confirmation').printThis({
+                        afterPrint: () => {
+                            setTimeout(() => {
+                                window.location.reload();
+                            }, 1000);
+                        }
+                    });
                 } else {
                     alert("Une erreur s'est produite");
                 }
