@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api;
 
+use App\Events\MyEvent;
 use App\Http\Controllers\Controller;
 use App\Models\Transfert;
 use Illuminate\Http\JsonResponse;
@@ -62,6 +63,7 @@ class TransfertController extends Controller
             'transfertPar' => $request->get('transfertPar'),
         ]);
         $transfert->save();
+        event(new MyEvent('Transfert'));
         return \response()->json(["success" => "success"]);
     }
 

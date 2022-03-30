@@ -132,14 +132,14 @@
                 <div class="card-header align-items-center border-0 mt-4">
                     <h3 class="card-title align-items-start flex-column">
                         <span class="fw-bolder mb-2 text-dark">{{__('Activités')}}</span>
-                        <span class="text-muted fw-bold fs-7">Evenements de la platforme</span>
+                        <span class="text-muted fw-bold fs-7">{{__('Evènements de la plateforme')}}</span>
                     </h3>
                 </div>
                 <!--end::Header-->
                 <!--begin::Body-->
                 <div class="card-body pt-5">
                     <!--begin::Timeline-->
-                    <div class="timeline-label">
+                    {{--<div class="timeline-label">
                         <!--begin::Item-->
                         <div class="timeline-item">
                             <!--begin::Label-->
@@ -276,7 +276,7 @@
                             <!--end::Text-->
                         </div>
                         <!--end::Item-->
-                    </div>
+                    </div>--}}
                     <!--end::Timeline-->
                 </div>
                 <!--end: Card Body-->

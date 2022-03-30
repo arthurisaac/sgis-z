@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MyEvent;
 use App\Models\Transfert;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -51,6 +52,7 @@ class TransfertController extends Controller
         $nextId = DB::table('transferts')->max('id') + 1;
         $numeroDeTransfert = time() . '-' . $nextId;
         $transferts = Transfert::all();
+        event(new MyEvent('SGIS-Z'));
         return view('transferts.create', compact('nextId', 'numeroDeTransfert', 'transferts'));
     }
 
@@ -184,10 +186,5 @@ class TransfertController extends Controller
             $transferts = Transfert::query()->whereBetween('dateTransfert', [$debut, $fin])->get();
         }
         return view('transferts.report', compact('transferts', 'query', 'debut', 'fin'));
-    }
-
-    public function printview($id) {
-        $transfert = Transfert::query()->find($id);
-        return view('recu', compact('transfert'));
     }
 }

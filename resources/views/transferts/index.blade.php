@@ -48,10 +48,10 @@
                         <table class="table table-striped table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
                             <thead>
                             <tr>
-                                <th>N°</th>
+                                <th>Code</th>
                                 <th>No Transfert</th>
-                                <th>Nom émetteur</th>
-                                <th>Nom bénéficiaire</th>
+                                <th>Emetteur</th>
+                                <th>Bénéficiaire</th>
                                 <th>Montant</th>
                                 <th>Date de transfert</th>
                                 <th></th>
@@ -60,7 +60,7 @@
                             <tbody>
                             @foreach($pendingTransfert as $transfert)
                                 <tr onclick="showOnTransfertModal({{$transfert}})">
-                                    <td>{{ $transfert->id }}</td>
+                                    <td>{{ $transfert->codeTransfert }}</td>
                                     <td>{{ $transfert->numeroTransfert }}</td>
                                     <td>{{ $transfert->nomEmetteur }}</td>
                                     <td>{{ $transfert->nomBeneficiaire }}</td>
