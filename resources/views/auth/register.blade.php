@@ -1,7 +1,7 @@
 @extends("layouts.auth")
 
 @section('main')
-    <form class="form w-100" novalidate="novalidate" method="POST" action="{{ route('register') }}">
+    <form class="form w-100" method="POST" action="{{ route('register') }}">
         @csrf
 
         <div class="fv-row mb-7">
@@ -66,7 +66,7 @@
         </div>
         <!--end::Input group-->
         <div class="text-center">
-            <button type="button" id="kt_sign_up_submit" class="btn btn-lg btn-primary">
+            <button type="submit" id="kt_sign_up_submit" class="btn btn-lg btn-primary">
                 <span class="indicator-label">{{ __('Valider') }}</span>
                 <span class="indicator-progress">Please wait...
 									<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
