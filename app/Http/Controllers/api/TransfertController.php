@@ -63,7 +63,7 @@ class TransfertController extends Controller
             'transfertPar' => $request->get('transfertPar'),
         ]);
         $transfert->save();
-        //event(new MyEvent('Transfert'));
+        event(new MyEvent('Transfert'));
         return \response()->json(["success" => "success"]);
     }
 
@@ -109,9 +109,9 @@ class TransfertController extends Controller
         $transfert->numeroDocumentBeneficiaire = $request->get('numeroDocumentBeneficiaire');
         $transfert->dateConfirmationRetrait = date('Y-m-d H:i:s');
         $transfert->confirmationTransfertPar = $request->get('confirmationTransfertPar');
-        $transfert->save();
+        //$transfert->save();
 
-        return \response()->json(["message" => "Confirmé avec suucès", "success" => "success"]);
+        return \response()->json(["message" => "Confirmé avec suucès", "success" => "success", "transfert" => $transfert]);
     }
 
     /**

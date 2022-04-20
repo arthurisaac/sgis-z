@@ -49,12 +49,12 @@
             <div class="d-flex flex-column mb-7 fv-row">
                 <label class="form-label fs-6 fw-bolder text-dark" for="montantTransfert">Montant de transfert</label>
                 <input type="number" name="montantTransfert" id="montantTransfert"
-                       class="form-control form-control-solid"/>
+                       class="form-control form-control-solid" value="0"/>
             </div>
             <div class="d-flex flex-column mb-7 fv-row">
                 <label class="form-label fs-6 fw-bolder text-dark" for="fraisTransfert">Frais de transfert</label>
                 <input type="number" name="fraisTransfert" id="fraisTransfert"
-                       class="form-control form-control-solid fraisTransfert"/>
+                       class="form-control form-control-solid fraisTransfert" value="0"/>
             </div>
         </div>
     </div>

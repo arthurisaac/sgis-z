@@ -106,7 +106,17 @@
                                         <div
                                             class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-active-bg py-lg-4 w-lg-225px">
                                             <div class="menu-item">
-                                                <a class="menu-link py-3" href="{{ route('transferts.report', 'tout') }}">
+                                                <a class="menu-link py-3"
+                                                   href="{{ route('transfert.index') }}">
+																			<span class="menu-bullet">
+																				<span class="bullet bullet-dot"></span>
+																			</span>
+                                                    <span class="menu-title">Gestion des tranferts</span>
+                                                </a>
+                                            </div>
+                                            <div class="menu-item">
+                                                <a class="menu-link py-3"
+                                                   href="{{ route('transferts.report', 'tout') }}">
 																			<span class="menu-bullet">
 																				<span class="bullet bullet-dot"></span>
 																			</span>
@@ -114,7 +124,8 @@
                                                 </a>
                                             </div>
                                             <div class="menu-item">
-                                                <a class="menu-link py-3" href="{{ route('transferts.report', 'retrait') }}">
+                                                <a class="menu-link py-3"
+                                                   href="{{ route('transferts.report', 'retrait') }}">
 																			<span class="menu-bullet">
 																				<span class="bullet bullet-dot"></span>
 																			</span>
@@ -122,7 +133,8 @@
                                                 </a>
                                             </div>
                                             <div class="menu-item">
-                                                <a class="menu-link py-3" href="{{ route('transferts.report', 'depot') }}">
+                                                <a class="menu-link py-3"
+                                                   href="{{ route('transferts.report', 'depot') }}">
 																			<span class="menu-bullet">
 																				<span class="bullet bullet-dot"></span>
 																			</span>
@@ -138,6 +150,11 @@
                                                 </a>
                                             </div>--}}
                                         </div>
+                                    </div>
+                                    <div class="menu-item">
+                                        <a class="menu-link py-3" href="{{route('retrait-uniquement') }}">
+                                            <span class="menu-title">Retraits uniquement</span>
+                                        </a>
                                     </div>
 
                                 </div>
@@ -306,7 +323,9 @@
                                         {{--<div class="separator my-2"></div>--}}
 
                                         <div class="menu-item px-5">
-                                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="menu-link px-5">{{__('Déconnexion')}}</a>
+                                            <a href="{{ route('logout') }}"
+                                               onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                               class="menu-link px-5">{{__('Déconnexion')}}</a>
                                         </div>
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST">
                                             @csrf
@@ -393,6 +412,9 @@
     <!--end::Page-->
 </div>
 
+<script>
+    const white_me = {!! auth()->user()->id !!};
+</script>
 <script src="{{ asset('assets/plugins/global/plugins.bundle.js')}}"></script>
 <script src="{{ asset('assets/js/scripts.bundle.js')}}"></script>
 <script src="{{ asset('js/app.js') }}"></script>

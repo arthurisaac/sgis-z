@@ -187,4 +187,30 @@ class TransfertController extends Controller
         }
         return view('transferts.report', compact('transferts', 'query', 'debut', 'fin'));
     }
+
+    public function retraitUniquement()
+    {
+        $nextId = DB::table('transferts')->max('id') + 1;
+        $numeroDeTransfert = time() . '-' . $nextId;
+        $transfertsOfDay = Transfert::query()->whereDate('dateTransfert', date('Y-m-d'))->get();
+        $pendingTransfert = Transfert::query()
+            ->where('transfertPar', '!=', \auth()->user()->id)
+            ->where('confirmationRetrait', '=', '0')->get();
+        $transferts = Transfert::all();
+
+        $dailyStatsIncome = Transfert::query()
+            ->selectRaw('hour(dateTransfert) AS heure, SUM(montantTransfert) AS montant')
+            ->whereDate('dateTransfert', date('Y-m-d'))
+            ->where('transfertPar', Auth::user()->id)
+            ->groupByRaw('hour(dateTransfert)')
+            ->get();
+
+        $dailyStatsOutGoing = Transfert::query()
+            ->selectRaw('hour(dateTransfert) AS heure, SUM(montantTransfert) AS montant')
+            ->whereDate('dateTransfert', date('Y-m-d'))
+            ->where('confirmationTransfertPar', Auth::user()->id)
+            ->groupByRaw('hour(dateTransfert)')
+            ->get();
+        return view('transferts.retrait', compact('nextId', 'numeroDeTransfert', 'pendingTransfert', 'transfertsOfDay', 'transferts', 'dailyStatsIncome', 'dailyStatsOutGoing'));
+    }
 }

@@ -13,24 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->middleware('auth');
 
-Route::get('/client', function () {
-    return view('client');
-});
-
-Route::get('test', function () {
-    event(new App\Events\MyEvent('Someone'));
-    return "Event has been sent!";
-});
-
-Route::get('/serveur', [\App\Http\Controllers\TestEvent::class, 'index']);
-
-Route::resource('dashboard', \App\Http\Controllers\DashboardController::class)->middleware('auth');
+Route::resource('dashboard', \App\Http\Controllers\HomeController::class)->middleware('auth');
 
 Route::resource('transfert', \App\Http\Controllers\TransfertController::class)->middleware('auth');
+
+Route::get('retrait-uniquement', [\App\Http\Controllers\TransfertController::class, 'retraitUniquement'])->name('retrait-uniquement')->middleware('auth');
 
 Route::get('transferts/{query}', [\App\Http\Controllers\TransfertController::class, 'report'])->name('transferts.report')->middleware('auth');
 

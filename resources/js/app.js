@@ -28,7 +28,6 @@ $(document).ready(function () {
             type: "POST",
             data: form.serialize(),
             success: function (response) {
-                console.log(response);
                 if (response.success === 'success') {
                     $('#invoice').printThis({
                         afterPrint: () => {
@@ -45,7 +44,7 @@ $(document).ready(function () {
                     });
 
                 } else {
-                    alert("Une erreur s'est produite");
+                    alert("Veuillez remplir tous les champs");
                 }
             },
             error: function () {
@@ -58,14 +57,6 @@ $(document).ready(function () {
     $("#editTransfertForm").submit(function (e) {
         e.preventDefault();
 
-        const code = $("#codeTransfertShow").val();
-        const montant = $("#montantTransfertShow").val();
-        const nom = $("#nomBeneficiaireShow").val();
-        $("#invoice-confirmation").removeClass("hide-invoice");
-        $("#invoice-montant-confirmation").html(montant.toLocaleString('fr-FR'));
-        $("#invoice-code-confirmation").html(code);
-        $("#invoice-beneficiaire-confirmation").html(nom);
-
         const transfertID = $("#transfertID").val();
         $.ajax({
             url: `/api/transfert/${transfertID}`,
@@ -74,14 +65,24 @@ $(document).ready(function () {
             data: $('#editTransfertForm').serialize(),
             success: function (response) {
                 if (response.success === 'success') {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Transfert confirmé',
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
+                    const transfert = response.transfert;
+
+                    const code = transfert.codeTransfert;
+                    const montant = transfert.montantTransfert;
+                    const nom = transfert.nomEmetteur;
+                    $("#invoice-confirmation").removeClass("hide-invoice");
+                    $("#invoice-montant-confirmation").html(montant.toLocaleString());
+                    $("#invoice-code-confirmation").html(code);
+                    $("#invoice-beneficiaire-confirmation").html(nom);
+                    
                     $('#invoice-confirmation').printThis({
                         afterPrint: () => {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Transfert confirmé',
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
                             setTimeout(() => {
                                 window.location.reload();
                             }, 1000);

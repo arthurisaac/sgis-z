@@ -4,19 +4,25 @@
 
 function showOnTransfertModal(transfert) {
     $(this).trigger("reset");
-    $("#numeroTransfertShow").val(transfert.numeroTransfert);
-    $("#nomEmetteurShow").val(transfert.numeroTransfert);
-    $("#nomBeneficiaireShow").val(transfert.nomBeneficiaire);
-    $("#nomBeneficiaireShow").val(transfert.nomBeneficiaire);
-    $("#typeDocumentEmetteurShow").val(transfert.typeDocumentEmetteur);
-    $("#numeroDocumentEmetteurShow").val(transfert.numeroDocumentEmetteur);
-    $("#codeTransfertShow").val(transfert.codeTransfert);
-    $("#typeTransfertShow").val(transfert.typeTransfert);
-    $("#montantTransfertShow").val(transfert.montantTransfert);
-    $("#fraisTransfertShow").val(transfert.fraisTransfert);
-    $("#typeDocumentBeneficiaireShow").val(transfert.typeDocumentBeneficiaire);
-    $("#numeroDocumentBeneficiaireShow").val(transfert.numeroDocumentBeneficiaire);
+    const MontantInletter = writtenNumber(transfert.montantTransfert, {lang: 'fr'});
+    $("#numeroTransfertShow").html(transfert.numeroTransfert);
+    $("#nomEmetteurShow").html(transfert.nomEmetteur);
+    $("#nomBeneficiaireShow").html(transfert.nomBeneficiaire);
+    $("#typeDocumentEmetteurShow").html(transfert.typeDocumentEmetteur);
+    $("#numeroDocumentEmetteurShow").html(transfert.numeroDocumentEmetteur);
+    $("#codeTransfertShow").html(transfert.codeTransfert);
+    $("#typeTransfertShow").html(transfert.typeTransfert);
+    $("#montantTransfertShow").html(transfert.montantTransfert.toLocaleString());
+    $("#montantTransfertLetterShow").html(MontantInletter);
+    $("#fraisTransfertShow").html(transfert.fraisTransfert);
+    $("#typeDocumentBeneficiaireShow").html(transfert.typeDocumentBeneficiaire);
+    $("#numeroDocumentBeneficiaireShow").html(transfert.numeroDocumentBeneficiaire);
     $("#transfertID").val(transfert.id);
+
+
+    if (white_me === transfert.transfertPar) {
+        $("#confirmation-form").hide();
+    }
     $('#transfertModal').modal('show');
 }
 
