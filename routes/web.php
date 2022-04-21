@@ -26,3 +26,7 @@ Route::get('transferts/{query}', [\App\Http\Controllers\TransfertController::cla
 Route::get('printtck', [\App\Http\Controllers\TransfertController::class, 'printview'])->name('printtck');
 
 Route::resource('home', \App\Http\Controllers\HomeController::class)->middleware('auth');
+
+Route::get('profile', [\App\Http\Controllers\UserController::class, 'profile'])->name('profile')->middleware('auth');
+
+Route::resource('utilisateurs', \App\Http\Controllers\UserController::class)->middleware('auth');

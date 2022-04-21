@@ -28,7 +28,15 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
                 'max:255',
                 Rule::unique('users')->ignore($user->id),
             ],
+            'avatar' => ['required', 'mimes:png,jpg,jpeg', 'max:2048']
         ])->validateWithBag('updateProfileInformation');
+
+        $avatar = $user->avatar;
+        if ($files = $input['avatar']) {
+            $fileName = time() . '_' . $input['avatar']->getClientOriginalName();
+            $filePath = $input['avatar']->storeAs('/', $fileName, 'public');
+            $avatar = '/storage/' . $filePath;
+        }
 
         if ($input['email'] !== $user->email &&
             $user instanceof MustVerifyEmail) {
@@ -37,6 +45,7 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             $user->forceFill([
                 'name' => $input['name'],
                 'email' => $input['email'],
+                'avatar' => $avatar
             ])->save();
         }
     }
