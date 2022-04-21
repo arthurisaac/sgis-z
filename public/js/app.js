@@ -2126,7 +2126,7 @@ $(document).ready(function () {
           var transfert = response.transfert;
           var code = transfert.codeTransfert;
           var montant = transfert.montantTransfert;
-          var nom = transfert.nomEmetteur;
+          var nom = transfert.nomBeneficiaire;
           $("#invoice-confirmation").removeClass("hide-invoice");
           $("#invoice-montant-confirmation").html(montant.toLocaleString());
           $("#invoice-code-confirmation").html(code);

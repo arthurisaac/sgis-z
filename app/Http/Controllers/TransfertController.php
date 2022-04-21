@@ -66,8 +66,7 @@ class TransfertController extends Controller
     {
         $request->validate([
             'nomEmetteur' => 'required',
-            'nomBeneficiaire' => 'required',
-            'numeroDocumentEmetteur' => 'required',
+            'nomBeneficiaire' => 'required',=
             'typeTransfert' => 'required',
             'montantTransfert' => 'required',
             'fraisTransfert' => 'required',
@@ -83,6 +82,8 @@ class TransfertController extends Controller
             'typeTransfert' => $request->get('typeTransfert'),
             'montantTransfert' => $request->get('montantTransfert'),
             'fraisTransfert' => $request->get('fraisTransfert'),
+            'telephoneBeneficiaire' => $request->get('telephoneBeneficiaire'),
+            'telephoneEmetteur' => $request->get('telephoneEmetteur'),
             'transfertPar' => Auth::user()->id,
         ]);
         $transfert->save();

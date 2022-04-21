@@ -69,7 +69,7 @@ $(document).ready(function () {
 
                     const code = transfert.codeTransfert;
                     const montant = transfert.montantTransfert;
-                    const nom = transfert.nomEmetteur;
+                    const nom = transfert.nomBeneficiaire;
                     $("#invoice-confirmation").removeClass("hide-invoice");
                     $("#invoice-montant-confirmation").html(montant.toLocaleString());
                     $("#invoice-code-confirmation").html(code);
