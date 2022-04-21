@@ -56,11 +56,25 @@
                                    class="form-control form-control-solid nomEmetteur" required/>
                         </div>
                         <div class="d-flex flex-column mb-7 fv-row">
+                            <label class="form-label fs-6 fw-bolder text-dark" for="telephoneEmetteur">Téléphone de
+                                l'émetteur</label>
+                            <input type="text" name="telephoneEmetteur" id="telephoneEmetteur"
+                                   class="form-control form-control-solid telephoneEmetteur"
+                                   value="{{$transfert->telephoneEmetteur}}" required/>
+                        </div>
+                        <div class="d-flex flex-column mb-7 fv-row">
                             <label class="form-label fs-6 fw-bolder text-dark" for="nomBeneficiaire">Nom du
                                 bénéficiaire</label>
                             <input type="text" name="nomBeneficiaire" id="nomBeneficiaire"
                                    value="{{$transfert->nomBeneficiaire}}"
                                    class="form-control form-control-solid nomBeneficiaire" required/>
+                        </div>
+                        <div class="d-flex flex-column mb-7 fv-row">
+                            <label class="form-label fs-6 fw-bolder text-dark" for="telephoneEmetteur">Téléphone
+                                bénéficiaire</label>
+                            <input type="tel" name="telephoneEmetteur" id="telephoneEmetteur"
+                                   class="form-control form-control-solid" value="{{$transfert->telephoneEmetteur}}"
+                                   required/>
                         </div>
                     </div>
                     <div class="col">
