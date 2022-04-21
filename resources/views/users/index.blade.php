@@ -58,7 +58,7 @@
     </div>
     <script>
         function deleteUserRecord(id) {
-            if (confirm('Souhaitez-vous vraiment supprimer?')) {
+            if (confirm('Souhaitez-vous vraiment supprimer l\'utilisateur?')) {
                 document.getElementById('remove-form-' + id).submit();
             }
         }
