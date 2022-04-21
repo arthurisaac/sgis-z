@@ -10,7 +10,7 @@
                             <a href="#" class="text-dark text-hover-primary fw-bolder fs-3">Utilisateurs</a>
                             <div class="text-muted fs-7 fw-bold">Gestions des utilisateurs</div>
                         </div>
-                        <div class="fw-bolder fs-3 text-primary">3</div>
+                        <div class="fw-bolder fs-3 text-primary">{{ str_pad( count($users), 2, '0', STR_PAD_LEFT) }}</div>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-striped table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">

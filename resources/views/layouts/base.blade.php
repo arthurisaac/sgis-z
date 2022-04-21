@@ -76,9 +76,8 @@
                                         <div
                                             class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-rounded-0 py-lg-4 w-lg-225px">
                                             <div class="menu-item">
-                                                <a class="menu-link active py-3" href="/">
+                                                <a class="menu-link py-3" href="{{ route('home.index') }}">
 															<span class="menu-icon">
-																<!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
 																<span class="svg-icon svg-icon-2">
 																	<svg xmlns="http://www.w3.org/2000/svg" width="24"
                                                                          height="25" viewBox="0 0 24 25" fill="none">
@@ -90,7 +89,6 @@
                                                                             fill="black"></path>
 																	</svg>
 																</span>
-                                                                <!--end::Svg Icon-->
 															</span>
                                                     <span class="menu-title">Démarrage</span>
                                                 </a>
