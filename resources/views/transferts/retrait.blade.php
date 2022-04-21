@@ -153,76 +153,21 @@
                             <div class="col-4">
                                 <h6>Transfert: <span id="typeTransfertShow"></span></h6>
                                 <h6>Nom de l'envoyeur: <span id="nomEmetteurShow"></span></h6>
-                                <h6>Nom du bénéficiaire: <span id="nomBeneficiaireShow"></span></h6>
+                                <h6>Nom receveur: <span id="nomBeneficiaireShow"></span></h6>
                                 <h6>Document envoyeur: <span id="typeDocumentEmetteurShow"></span></h6>
                                 <h6>Numéro document émetteur: <span id="numeroDocumentEmetteurShow"></span></h6>
+                                <h6>Téléphone envoyeur: <span id="telephoneEmetteurShow"></span></h6>
+                                <h6>Téléphone receveur: <span id="telephoneBeneficiaireShow"></span></h6>
                                 <br>
                                 <h1>Montant  <span id="montantTransfertShow" class="text-danger"></span></h6>
                                 <h6 class="p-4 bg-danger text-white" id="montantTransfertLetterShow"></h6>
                             </div>
                             <div class="col"></div>
-                            <div class="col-2 text-center">
+                            <div class="col text-center">
                                 <p>Code tranfert</p>
                                 <div class="bg-primary p-9" style="border-radius: 8px;">
                                     <h1 style="font-size: 35px;"><span id="codeTransfertShow"></span></h1>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                {{--<div class="form-group">
-                                    <label for="nomEmetteurShow">Nom de l'émetteur</label>
-                                    <input type="text" name="nomEmetteur" id="nomEmetteurShow" class="form-control"
-                                           required/>
-                                </div>--}}
-                                {{--<div class="form-group">
-                                    <label for="nomBeneficiaireShow">Nom du bénéficiaire</label>
-                                    <input type="text" name="nomBeneficiaire" id="nomBeneficiaireShow"
-                                           class="form-control"
-                                           required/>
-                                </div>--}}
-                                {{--<div class="form-group">
-                                    <label for="typeDocumentEmetteurShow">Type document émetteur</label>
-                                    <select name="typeDocumentEmetteur" id="typeDocumentEmetteurShow"
-                                            class="form-control">
-                                        <option value="CNIB">CNIB</option>
-                                        <option value="PASSPORT">PASSPORT</option>
-                                    </select>
-                                </div>--}}
-                                {{--<div class="form-group">
-                                    <label for="numeroDocumentEmetteurShow">Numéro document émetteur</label>
-                                    <input type="text" name="numeroDocumentEmetteur" id="numeroDocumentEmetteurShow"
-                                           class="form-control" list="cnib"/>
-                                    <datalist id="cnib">
-                                        <option value="B122323232">
-                                        <option value="B0329309203">
-                                    </datalist>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="form-group">
-                                    <label for="codeTransfertShow">Code de transfert</label>
-                                    <input type="number" name="codeTransfert" id="codeTransfertShow"
-                                           value="{{ str_pad($nextId, 4, '0', STR_PAD_LEFT) }}" class="form-control"/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="typeTransfertShow">Type de transfert</label>
-                                    <select name="typeTransfert" id="typeTransfertShow" class="form-control">
-                                        <option>SGIS-Z</option>
-                                        <option>OM</option>
-                                        <option>FLOOZ</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="montantTransfertShow">Montant de transfert</label>
-                                    <input type="number" name="montantTransfert" id="montantTransfertShow"
-                                           class="form-control"/>
-                                </div>
-                                <div class="form-group">
-                                    <label for="fraisTransfertShow">Frais de transfert</label>
-                                    <input type="number" name="fraisTransfert" id="fraisTransfertShow"
-                                           class="form-control"/>
-                                </div>--}}
                             </div>
                         </div>
                         <div id="confirmation-form">
@@ -325,7 +270,9 @@
         </div>
         <div class="row pt-5">
             <div class="col-4">
-                <div style="height: 80px; width: 100%; border: 2px solid black;"></div>
+                <div style="height: 80px; width: 100%; border: 2px solid black;">
+                    <p class="text-center"> <span id="invoice-emetteur"></span> </p>
+                </div>
                 <p class="text-center pt-2">L'envoyeur</p>
             </div>
             <div class="col"></div>
@@ -409,7 +356,9 @@
         </div>
         <div class="row pt-5">
             <div class="col-4">
-                <div style="height: 80px; width: 100%; border: 2px solid black;"></div>
+                <div style="height: 80px; width: 100%; border: 2px solid black;">
+                    <p class="text-center"> <span id="invoice-receveur"></span> </p>
+                </div>
                 <p class="text-center pt-2">Le receveur</p>
             </div>
             <div class="col"></div>

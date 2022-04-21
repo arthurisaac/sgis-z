@@ -33,7 +33,7 @@ class CreateTransfertsTable extends Migration
             $table->string('telephoneBeneficiaire')->nullable();
             $table->foreignId('retraitVu')->nullable()->references('id')->on('users');
             $table->foreignId('transfertPar')->references('id')->on('users');
-            $table->foreignId('confirmationTransfertPar')->references('id')->on('users');
+            $table->foreignId('confirmationTransfertPar')->nullable()->references('id')->on('users');
             $table->timestamps();
         });
     }

@@ -16,12 +16,14 @@ $(document).ready(function () {
         const code = $("#codeTransfert").val();
         const montant = $("#montantTransfert").val();
         const frais = $("#fraisTransfert").val();
+        const envoyeur = $("#nomEmetteur").val();
 
         $("#invoice").removeClass("hide-invoice");
 
         $("#invoice-code").html(code);
         $("#invoice-montant").html(montant.toLocaleString('fr-FR'));
         $("#invoice-frais").html(frais.toLocaleString('fr-FR'));
+        $("#invoice-emetteur").html(envoyeur);
 
         $.ajax({
             url: '/api/transfert',
@@ -74,7 +76,8 @@ $(document).ready(function () {
                     $("#invoice-montant-confirmation").html(montant.toLocaleString());
                     $("#invoice-code-confirmation").html(code);
                     $("#invoice-beneficiaire-confirmation").html(nom);
-                    
+                    $("#invoice-receveur").html(nom);
+
                     $('#invoice-confirmation').printThis({
                         afterPrint: () => {
                             Swal.fire({

@@ -17,6 +17,8 @@ function showOnTransfertModal(transfert) {
     $("#fraisTransfertShow").html(transfert.fraisTransfert);
     $("#typeDocumentBeneficiaireShow").html(transfert.typeDocumentBeneficiaire);
     $("#numeroDocumentBeneficiaireShow").html(transfert.numeroDocumentBeneficiaire);
+    $("#telephoneEmetteurShow").html(transfert.telephoneEmetteur);
+    $("#telephoneBeneficiaireShow").html(transfert.telephoneBeneficiaire);
     $("#transfertID").val(transfert.id);
 
 

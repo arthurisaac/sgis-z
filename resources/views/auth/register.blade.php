@@ -14,6 +14,18 @@
             @enderror
         </div>
 
+        <div class="fv-row mb-7">
+            <label for="city" class="form-label fw-bolder text-dark fs-6">{{__('Ville')}}</label>
+            <select class="form-control form-control-lg form-control-solid  @error('city') is-invalid @enderror"
+                    name="city" required>
+                <option value="Ouagadougou">Ouagadougou</option>
+                <option value="Lomé">Lomé</option>
+            </select>
+            @error('city')
+            <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+            @enderror
+        </div>
+
         <!--begin::Input group-->
         <div class="fv-row mb-7">
             <label class="form-label fw-bolder text-dark fs-6">{{__('Email')}}</label>
