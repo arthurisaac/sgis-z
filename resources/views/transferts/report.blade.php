@@ -132,6 +132,44 @@
         </div>
         <div class="col-xxl-4">
             <div class="card card-xxl-stretch-50 mb-5 mb-xl-8">
+                <div class="card-body p-0 d-flex justify-content-between flex-column overflow-hidden">
+                    <div class="d-flex flex-stack flex-wrap flex-grow-1 px-9 pt-9 pb-3">
+                        <div class="me-2">
+                            <span class="fw-bolder d-block fs-3">Filtre</span>
+                            <span class="text-black-50 fw-bold">Filtre par moment</span>
+                        </div>
+                        <div class="fw-bolder fs-3 text-black"></div>
+                    </div>
+                    <div class="card-body">
+                        <form action="#" method="get">
+                            @csrf
+
+                            <div class="row mb-10">
+                                <div class="col">
+                                    <div class="d-flex flex-column mb-7 fv-row">
+                                        <label class="form-label fs-6 fw-bolder text-dark" for="dateDebut">Date debut</label>
+                                        <input type="date" name="debut" id="dateDebut" value="{{ $debut }}"
+                                               class="form-control form-control-solid numeroDocumentEmetteur"/>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="d-flex flex-column mb-7 fv-row">
+                                        <label class="form-label fs-6 fw-bolder text-dark" for="dateFin">Date fin</label>
+                                        <input type="date" name="fin" id="dateFin" value="{{ $fin }}"
+                                               class="form-control form-control-solid numeroDocumentEmetteur"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-primary">Valider</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="card card-xxl-stretch-50 mb-5 mb-xl-8">
                 <div class="card-body d-flex flex-column p-0">
                     <div class="card-p pb-0">
                         <div class="d-flex flex-stack flex-wrap">
@@ -145,9 +183,9 @@
                     <div class="p-10 pt-0">
                         <div>Total transferts : {{ number_format( $transferts->sum('montantTransfert') ) }}</div>
                         <div>Total frais de transfert : {{ number_format( $transferts->sum('fraisTransfert') ) }}</div>
-                        <div>Total transfert par {{ \Illuminate\Support\Facades\Auth::user()->name ?? 'Inconnnu' }}
+                        <div>Total transfert {{ \Illuminate\Support\Facades\Auth::user()->city ?? 'Inconnnu' }}
                             : {{ number_format( $transferts->where('transfertPar', \Illuminate\Support\Facades\Auth::user()->id)->sum('montantTransfert') ) }}</div>
-                        <div>Total retrait par {{ \Illuminate\Support\Facades\Auth::user()->name ?? 'Inconnu' }}
+                        <div>Total retrait par {{ \Illuminate\Support\Facades\Auth::user()->city ?? 'Inconnu' }}
                             : {{ number_format( $transferts->where('confirmationTransfertPar', \Illuminate\Support\Facades\Auth::user()->id)->sum('montantTransfert') ) }}</div>
                         <div>Transfert le plus élevé : {{ number_format($transferts->max('montantTransfert')) }}</div>
                         <div>Transfert le plus bas : {{ number_format($transferts->min('montantTransfert')) }}</div>
