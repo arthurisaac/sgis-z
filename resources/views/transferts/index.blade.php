@@ -318,7 +318,7 @@
         </div>
     </div>
 
-    <div id="invoice" class="p-5">
+    <div id="invoice" class="p-5 hide-invoice">
         <div class="row">
             <div class="col">
                 <div style="display: flex; align-items: center;">
