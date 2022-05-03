@@ -2081,12 +2081,14 @@ $(document).ready(function () {
     var code = $("#codeTransfert").val();
     var montant = $("#montantTransfert").val();
     var frais = $("#fraisTransfert").val();
-    var envoyeur = $("#nomEmetteur").val();
+    var emetteur = $("#nomEmetteur").val();
+    var beneficiaire = $("#nomBeneficiaire").val();
     $("#invoice").removeClass("hide-invoice");
     $("#invoice-code").html(code);
     $("#invoice-montant").html(montant.toLocaleString('fr-FR'));
     $("#invoice-frais").html(frais.toLocaleString('fr-FR'));
-    $("#invoice-emetteur").html(envoyeur);
+    $("#invoice-emetteur").html(emetteur);
+    $("#invoice-beneficiaire").html(beneficiaire);
     $.ajax({
       url: '/api/transfert',
       type: "POST",
@@ -2094,6 +2096,8 @@ $(document).ready(function () {
       success: function success(response) {
         if (response.success === 'success') {
           $('#invoice').printThis({
+            printDelay: 500,
+            importCSS: true,
             afterPrint: function afterPrint() {
               Swal.fire({
                 icon: 'success',

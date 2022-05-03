@@ -118,8 +118,7 @@
                                     <td>
                                         <button class="btn btn-sm btn-danger"
                                                 onclick="deleteOneTransfert({{$transfert->id}})"></button>
-                                        <button class="btn btn-sm btn-primary"
-                                                onclick="showOnTransfertModal({{$transfert}})"></button>
+                                        <a class="btn btn-sm btn-primary" href="{{ route('transfert.edit', $transfert->id) }}"></a>
                                     </td>
                                 </tr>
                             @endforeach
