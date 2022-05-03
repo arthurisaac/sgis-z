@@ -155,7 +155,8 @@
                                 <h6>Nom de l'envoyeur: <span id="nomEmetteurShow"></span></h6>
                                 <h6>Nom receveur: <span id="nomBeneficiaireShow"></span></h6>
                                 <h6>Document envoyeur: <span id="typeDocumentEmetteurShow"></span></h6>
-                                <h6>Numéro document émetteur: <span id="numeroDocumentEmetteurShow"></span></h6>
+                                <h6>Numéro document envoyeur: <span id="numeroDocumentEmetteurShow"></span></h6>
+                                <h6>Document délivré le: <span id="documentEmetteurDelivreLeShow"></span></h6>
                                 <h6>Téléphone envoyeur: <span id="telephoneEmetteurShow"></span></h6>
                                 <h6>Téléphone receveur: <span id="telephoneBeneficiaireShow"></span></h6>
                                 <br>
@@ -189,6 +190,13 @@
                                         <label class="form-label fs-6 fw-bolder text-dark" for="numeroDocumentBeneficiaireEdit">Numéro document</label>
                                         <input type="text" name="numeroDocumentBeneficiaire"
                                                 id="numeroDocumentBeneficiaireEdit" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="d-flex flex-column mb-6 fv-row">
+                                        <label class="form-label fs-6 fw-bolder text-dark" for="documentBeneficiaireDelivreLe">Document délivré le</label>
+                                        <input type="text" name="documentBeneficiaireDelivreLe"
+                                               id="documentBeneficiaireDelivreLe" class="form-control"/>
                                     </div>
                                 </div>
                             </div>

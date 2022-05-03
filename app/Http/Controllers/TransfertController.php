@@ -78,6 +78,7 @@ class TransfertController extends Controller
             'nomBeneficiaire' => $request->get('nomBeneficiaire'),
             'typeDocumentEmetteur' => $request->get('typeDocumentEmetteur'),
             'numeroDocumentEmetteur' => $request->get('numeroDocumentEmetteur'),
+            'documentEmetteurDelivreLe' => $request->get('documentEmetteurDelivreLe'),
             'codeTransfert' => $request->get('codeTransfert'),
             'typeTransfert' => $request->get('typeTransfert'),
             'montantTransfert' => $request->get('montantTransfert'),
@@ -145,6 +146,8 @@ class TransfertController extends Controller
         $transfert->fraisTransfert = $request->get('fraisTransfert');
         $transfert->telephoneBeneficiaire = $request->get('telephoneBeneficiaire');
         $transfert->telephoneEmetteur = $request->get('telephoneEmetteur');
+        $transfert->documentEmetteurDelivreLe = $request->get('documentEmetteurDelivreLe');
+        $transfert->documentBeneficiaireDelivreLe = $request->get('documentBeneficiaireDelivreLe');
 
         $transfert->save();
 

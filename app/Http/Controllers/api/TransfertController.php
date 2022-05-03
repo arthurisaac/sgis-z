@@ -62,6 +62,8 @@ class TransfertController extends Controller
             'telephoneBeneficiaire' => $request->get('telephoneBeneficiaire'),
             'telephoneEmetteur' => $request->get('telephoneEmetteur'),
             'transfertPar' => $request->get('transfertPar'),
+            'numeroDocumentEmetteur' => $request->get('numeroDocumentEmetteur'),
+            'documentEmetteurDelivreLe' => $request->get('documentEmetteurDelivreLe'),
         ]);
         $transfert->save();
         event(new MyEvent('Transfert'));
@@ -108,6 +110,7 @@ class TransfertController extends Controller
         $transfert->confirmationRetrait = 1;
         $transfert->typeDocumentBeneficiaire = $request->get('typeDocumentBeneficiaire');
         $transfert->numeroDocumentBeneficiaire = $request->get('numeroDocumentBeneficiaire');
+        $transfert->documentBeneficiaireDelivreLe = $request->get('documentBeneficiaireDelivreLe');
         $transfert->dateConfirmationRetrait = date('Y-m-d H:i:s');
         $transfert->confirmationTransfertPar = $request->get('confirmationTransfertPar');
         $transfert->save();

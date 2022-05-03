@@ -25,6 +25,8 @@ class Transfert extends Model
         'numeroDocumentBeneficiaire',
         'telephoneEmetteur',
         'telephoneBeneficiaire',
+        'documentEmetteurDelivreLe',
+        'documentBeneficiaireDelivreLe',
         'retraitVu',
         'transfertPar',
         'confirmationTransfertPar',

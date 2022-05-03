@@ -119,9 +119,7 @@
         </div>
         <div class="col-xxl-4">
             <div class="card card-xxl-stretch-50 mb-5 mb-xl-8">
-                <!--begin::Body-->
                 <div class="card-body d-flex flex-column p-0">
-                    <!--begin::Stats-->
                     <div class="flex-grow-1 card-p pb-0">
                         <div class="d-flex flex-stack flex-wrap">
                             <div class="me-2">
@@ -141,12 +139,9 @@
                          style="height: 150px"></div>
                     <!--end::Chart-->
                 </div>
-                <!--end::Body-->
             </div>
             <div class="card card-xxl-stretch-50 mb-5 mb-xl-8 bg-warning">
-                <!--begin::Body-->
                 <div class="card-body p-0 d-flex justify-content-between flex-column overflow-hidden">
-                    <!--begin::Hidden-->
                     <div class="d-flex flex-stack flex-wrap flex-grow-1 px-9 pt-9 pb-3">
                         <div class="me-2">
                             <span class="fw-bolder text-gray-100 d-block fs-3">Rapport</span>
@@ -158,12 +153,9 @@
                                 ->sum('montantTransfert'), 0, ',', ' ' )}}
                         </div>
                     </div>
-                    <!--end::Hidden-->
-                    <!--begin::Chart-->
                     {{--<div class="widget-day-report-chart" data-kt-color="primary" style="height: 175px"></div>--}}
                     <div class="mixed-widget-2-chart card-rounded-bottom bg-warning" data-kt-color="warning"
                          style="height: 175px"></div>
-                    <!--end::Chart-->
                 </div>
             </div>
         </div>
@@ -187,9 +179,10 @@
                             <div class="col">
                                 <h6>Transfert: <span id="typeTransfertShow"></span></h6>
                                 <h6>Nom de l'envoyeur: <span id="nomEmetteurShow"></span></h6>
-                                <h6>Nom du bénéficiaire: <span id="nomBeneficiaireShow"></span></h6>
+                                <h6>Nom du reçeveur: <span id="nomBeneficiaireShow"></span></h6>
                                 <h6>Document envoyeur: <span id="typeDocumentEmetteurShow"></span></h6>
-                                <h6>Numéro document émetteur: <span id="numeroDocumentEmetteurShow"></span></h6>
+                                <h6>Numéro document envoyeur: <span id="numeroDocumentEmetteurShow"></span></h6>
+                                <h6>Document délivré le: <span id="documentEmetteurDelivreLeShow"></span></h6>
                                 <h6>Téléphone envoyeur: <span id="telephoneEmetteurShow"></span></h6>
                                 <h6>Téléphone receveur: <span id="telephoneBeneficiaireShow"></span></h6>
                                 <br>
@@ -282,6 +275,13 @@
                                                 id="numeroDocumentBeneficiaireEdit" class="form-control"/>
                                     </div>
                                 </div>
+                                <div class="col">
+                                    <div class="d-flex flex-column mb-6 fv-row">
+                                        <label class="form-label fs-6 fw-bolder text-dark" for="documentBeneficiaireDelivreLe">Document délivré le</label>
+                                        <input type="text" name="documentBeneficiaireDelivreLe"
+                                                id="documentBeneficiaireDelivreLe" class="form-control"/>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -325,13 +325,12 @@
                     <img src="{{ asset('images/world_icon.png') }}" alt=""
                          style="height: 50px; position:relative; top: -3px;">
                     <div style="margin-left: 10px;">
-                        <h4>SINGBEOGO GLOBAL INTERNATIONAL SERVICE</h4>
-                        <h5 class="text-gray-700">BUREAU DE TRANSFERT D'ARGENT ET DE CHANGE</h5>
+                        <h5>SINGBEOGO GLOBAL INTERNATIONAL SERVICE</h5>
+                        <h6 class="text-gray-700">BUREAU DE TRANSFERT D'ARGENT ET DE CHANGE</h6>
                     </div>
                 </div>
             </div>
         </div>
-        <br>
         <div class="row">
             <div class="col">
                 <h6>Code : <strong><span id="invoice-code"></span></strong></h6>
@@ -400,7 +399,6 @@
                     alt="">
             </div>
         </div>
-        <br>
         <p class="text-center">{{ __("La SGIS-Z décline toute responsabilité s'il se révèle que les fonds proviennent d'origine criminelle ou de source illégale; Le déposant déclare que les fonds mis en dépôt ne sont pas criminelle, ne proviennent pas d'activités illégales et rassure connaître à qui il envoie.") }}</p>
 
     </div>

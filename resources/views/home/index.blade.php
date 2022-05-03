@@ -113,21 +113,13 @@
                                  id="weekStatsIncome">{{ number_format($weekStatsIncome->sum('montant'), 0, ',', ' ' ) }}</div>
                         </div>
                     </div>
-                    <!--end::Stats-->
-                    <!--begin::Chart-->
                     <div class="widget-weekly-income-report-chart card-rounded-bottom" data-kt-chart-color="primary"
                          style="height: 150px"></div>
-                    <!--end::Chart-->
                 </div>
-                <!--end::Body-->
             </div>
-            <!--end::Mixed Widget 7-->
             <br>
-            <!--begin::Mixed Widget 10-->
             <div class="card card-xxl-stretch-50 mb-5 mb-xl-8">
-                <!--begin::Body-->
                 <div class="card-body p-0 d-flex justify-content-between flex-column overflow-hidden">
-                    <!--begin::Hidden-->
                     <div class="d-flex flex-stack flex-wrap flex-grow-1 px-9 pt-9 pb-3">
                         <div class="me-2">
                             <span class="fw-bolder text-gray-800 d-block fs-3">Rapport hebdomadaire</span>
@@ -136,18 +128,12 @@
                         <div
                             class="fw-bolder fs-3 text-primary">{{ number_format($weekStatsOutGoing->sum('montant'), 0, ',', ' ' ) }}</div>
                     </div>
-                    <!--end::Hidden-->
-                    <!--begin::Chart-->
                     <div class="widget-weekly-outgoing-report-chart" data-kt-color="primary"
                          style="height: 175px"></div>
-                    <!--end::Chart-->
                 </div>
             </div>
-            <!--end::Mixed Widget 10-->
         </div>
-        <!--end::Col-->
     </div>
-    <!--end::Row-->
 
     <script>
         const weekStatsIncome = @json($weekStatsIncome);

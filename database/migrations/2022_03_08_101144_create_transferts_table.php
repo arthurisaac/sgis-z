@@ -28,7 +28,9 @@ class CreateTransfertsTable extends Migration
             $table->string('typeDocumentEmetteur')->nullable();
             $table->string('typeDocumentBeneficiaire')->nullable();
             $table->string('numeroDocumentEmetteur')->nullable();
+            $table->string('documentEmetteurDelivreLe')->nullable();
             $table->string('numeroDocumentBeneficiaire')->nullable();
+            $table->string('documentBeneficiaireDelivreLe')->nullable();
             $table->string('telephoneEmetteur')->nullable();
             $table->string('telephoneBeneficiaire')->nullable();
             $table->foreignId('retraitVu')->nullable()->references('id')->on('users');

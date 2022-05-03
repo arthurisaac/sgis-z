@@ -19,25 +19,29 @@
                 </select>
             </div>
             <div class="d-flex flex-column mb-7 fv-row">
-                <label class="form-label fs-6 fw-bolder text-dark" for="numeroDocumentEmetteur">Numéro document émetteur</label>
+                <label class="form-label fs-6 fw-bolder text-dark" for="numeroDocumentEmetteur">{{__('Numéro document de l\'envoyeur')}}</label>
                 <input type="text" name="numeroDocumentEmetteur" id="numeroDocumentEmetteur"
                        class="form-control form-control-solid numeroDocumentEmetteur" list="cnib"/>
                 <datalist id="cnib"></datalist>
             </div>
             <div class="d-flex flex-column mb-7 fv-row">
-                <label class="form-label fs-6 fw-bolder text-dark" for="nomEmetteur">Nom de l'émetteur</label>
+                <label class="form-label fs-6 fw-bolder text-dark" for="documentEmetteurDelivreLe">{{__('Délivré le')}}</label>
+                <input type="text" name="documentEmetteurDelivreLe" id="documentEmetteurDelivreLe" class="form-control form-control-solid documentEmetteurDelivreLe" required/>
+            </div>
+            <div class="d-flex flex-column mb-7 fv-row">
+                <label class="form-label fs-6 fw-bolder text-dark" for="nomEmetteur">{{__('Nom de l\'envoyeur')}}</label>
                 <input type="text" name="nomEmetteur" id="nomEmetteur" class="form-control form-control-solid nomEmetteur" required/>
             </div>
             <div class="d-flex flex-column mb-7 fv-row">
-                <label class="form-label fs-6 fw-bolder text-dark" for="telephoneEmetteur">Téléphone de l'émetteur</label>
+                <label class="form-label fs-6 fw-bolder text-dark" for="telephoneEmetteur">{{__('Téléphone de l\'envoyeur')}}</label>
                 <input type="text" name="telephoneEmetteur" id="telephoneEmetteur" class="form-control form-control-solid telephoneEmetteur" required/>
             </div>
             <div class="d-flex flex-column mb-7 fv-row">
-                <label class="form-label fs-6 fw-bolder text-dark" for="nomBeneficiaire">Nom du bénéficiaire</label>
+                <label class="form-label fs-6 fw-bolder text-dark" for="nomBeneficiaire">{{__('Nom du receveur')}}</label>
                 <input type="text" name="nomBeneficiaire" id="nomBeneficiaire" class="form-control form-control-solid nomBeneficiaire" required/>
             </div>
             <div class="d-flex flex-column mb-7 fv-row">
-                <label class="form-label fs-6 fw-bolder text-dark" for="telephoneBeneficiaire">Téléphone bénéficiaire</label>
+                <label class="form-label fs-6 fw-bolder text-dark" for="telephoneBeneficiaire">{{__('Téléphone du receveur')}}</label>
                 <input type="tel" name="telephoneBeneficiaire" id="telephoneBeneficiaire"
                        class="form-control form-control-solid" required/>
             </div>
