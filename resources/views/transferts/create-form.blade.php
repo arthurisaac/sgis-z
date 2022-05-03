@@ -37,8 +37,8 @@
                 <input type="text" name="nomBeneficiaire" id="nomBeneficiaire" class="form-control form-control-solid nomBeneficiaire" required/>
             </div>
             <div class="d-flex flex-column mb-7 fv-row">
-                <label class="form-label fs-6 fw-bolder text-dark" for="telephoneEmetteur">Téléphone bénéficiaire</label>
-                <input type="tel" name="telephoneEmetteur" id="telephoneEmetteur"
+                <label class="form-label fs-6 fw-bolder text-dark" for="telephoneBeneficiaire">Téléphone bénéficiaire</label>
+                <input type="tel" name="telephoneBeneficiaire" id="telephoneBeneficiaire"
                        class="form-control form-control-solid" required/>
             </div>
         </div>

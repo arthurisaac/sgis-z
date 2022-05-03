@@ -69,6 +69,7 @@ class TransfertController extends Controller
             'typeTransfert' => 'required',
             'montantTransfert' => 'required',
             'fraisTransfert' => 'required',
+            'telephoneBeneficiaire' => 'required',
         ]);
 
         $transfert = new Transfert([
@@ -129,6 +130,7 @@ class TransfertController extends Controller
             'typeTransfert' => 'required',
             'montantTransfert' => 'required',
             'fraisTransfert' => 'required',
+            'telephoneBeneficiaire' => 'required',
         ]);
 
         $transfert = Transfert::query()->find($id);
@@ -141,6 +143,8 @@ class TransfertController extends Controller
         $transfert->typeTransfert = $request->get('typeTransfert');
         $transfert->montantTransfert = $request->get('montantTransfert');
         $transfert->fraisTransfert = $request->get('fraisTransfert');
+        $transfert->telephoneBeneficiaire = $request->get('telephoneBeneficiaire');
+        $transfert->telephoneEmetteur = $request->get('telephoneEmetteur');
 
         $transfert->save();
 

@@ -70,10 +70,10 @@
                                    class="form-control form-control-solid nomBeneficiaire" required/>
                         </div>
                         <div class="d-flex flex-column mb-7 fv-row">
-                            <label class="form-label fs-6 fw-bolder text-dark" for="telephoneEmetteur">Téléphone
+                            <label class="form-label fs-6 fw-bolder text-dark" for="telephoneBeneficiaire">Téléphone
                                 bénéficiaire</label>
-                            <input type="tel" name="telephoneEmetteur" id="telephoneEmetteur"
-                                   class="form-control form-control-solid" value="{{$transfert->telephoneEmetteur}}"
+                            <input type="tel" name="telephoneBeneficiaire" id="telephoneBeneficiaire"
+                                   class="form-control form-control-solid" value="{{$transfert->telephoneBeneficiaire}}"
                                    required/>
                         </div>
                     </div>
