@@ -2101,7 +2101,7 @@ $(document).ready(function () {
             afterPrint: function afterPrint() {
               Swal.fire({
                 icon: 'success',
-                title: 'Transfert réussi',
+                title: 'Impression en cours',
                 showConfirmButton: false,
                 timer: 1500
               });
@@ -2153,6 +2153,51 @@ $(document).ready(function () {
           });
         } else {
           alert("Une erreur s'est produite");
+        }
+      },
+      error: function error() {
+        alert('server error occured');
+      }
+    });
+  });
+  $("#updateTransfertForm").on("submit", function (e) {
+    e.preventDefault();
+    var form = $(this);
+    var id = $("#transfertID").val();
+    var code = $("#codeTransfert").val();
+    var montant = $("#montantTransfert").val();
+    var frais = $("#fraisTransfert").val();
+    var emetteur = $("#nomEmetteur").val();
+    var beneficiaire = $("#nomBeneficiaire").val();
+    $("#invoice").removeClass("hide-invoice");
+    $("#invoice-code").html(code);
+    $("#invoice-montant").html(montant.toLocaleString('fr-FR'));
+    $("#invoice-frais").html(frais.toLocaleString('fr-FR'));
+    $("#invoice-emetteur").html(emetteur);
+    $("#invoice-beneficiaire").html(beneficiaire);
+    $.ajax({
+      url: '/transfert/' + id,
+      type: "PATCH",
+      data: form.serialize(),
+      success: function success(response) {
+        if (response.success === 'success') {
+          $('#invoice').printThis({
+            printDelay: 500,
+            importCSS: true,
+            afterPrint: function afterPrint() {
+              Swal.fire({
+                icon: 'success',
+                title: 'Transfert réussi',
+                showConfirmButton: false,
+                timer: 1500
+              });
+              setTimeout(function () {
+                window.location.reload();
+              }, 1000);
+            }
+          });
+        } else {
+          alert("Veuillez remplir tous les champs");
         }
       },
       error: function error() {

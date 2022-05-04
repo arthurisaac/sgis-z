@@ -151,8 +151,9 @@ class TransfertController extends Controller
         $transfert->documentBeneficiaireDelivreLe = $request->get('documentBeneficiaireDelivreLe');
 
         $transfert->save();
+        return \response()->json(["message" => "Confirmé avec suucès", "success" => "success", "transfert" => $transfert]);
 
-        return redirect()->to('/transfert')->with('success', 'Modifié avec succès');
+        //return redirect()->to('/transfert')->with('success', 'Modifié avec succès');
     }
 
     /**
