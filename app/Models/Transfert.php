@@ -31,4 +31,12 @@ class Transfert extends Model
         'transfertPar',
         'confirmationTransfertPar',
     ];
+
+    function deposerPar() {
+        return $this->belongsTo('App\Models\User', 'transfertPar', 'id');
+    }
+
+    function retraitPar() {
+        return $this->belongsTo('App\Models\User', 'confirmationTransfertPar', 'id');
+    }
 }

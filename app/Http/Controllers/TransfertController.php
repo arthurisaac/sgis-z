@@ -99,7 +99,8 @@ class TransfertController extends Controller
      */
     public function show($id)
     {
-        //
+        $transfert = Transfert::query()->find($id);
+        return view('transferts.show', compact('transfert', 'id'));
     }
 
     /**
@@ -174,6 +175,17 @@ class TransfertController extends Controller
         $transferts = Transfert::query()->orderByDesc('id')->get();
         $debut = $request->get('debut');
         $fin = $request->get('fin');
+        $envoiOuagadougou = Transfert::with('deposerPar')->whereHas('deposerPar', fn ($query) => 
+        $query->where('city', 'like', 'Ouagadougou'))->get();
+        $retraitOuagadougou = Transfert::query()->whereHas('retraitPar', fn ($query) => 
+        $query->where('city', 'like', 'Ouagadougou'))->get();
+        $transfertEnAttente = Transfert::query()
+        ->where('confirmationRetrait', '=', 0);
+
+        $envoiLome = Transfert::with('deposerPar')->whereHas('deposerPar', fn ($query) => 
+        $query->where('city', 'like', 'Lomé'))->get();
+        $retraitLome = Transfert::query()->whereHas('retraitPar', fn ($query) => 
+        $query->where('city', 'like', 'Lomé'))->get();
 
         if (isset($query) && $query == 'depot') {
             $transferts = Transfert::query()
@@ -192,7 +204,7 @@ class TransfertController extends Controller
         if (isset($debut) && isset($fin)) {
             $transferts = Transfert::query()->whereBetween('dateTransfert', [$debut, $fin])->get();
         }
-        return view('transferts.report', compact('transferts', 'query', 'debut', 'fin'));
+        return view('transferts.report', compact('transferts', 'query', 'debut', 'fin', 'envoiOuagadougou', 'retraitOuagadougou', 'envoiLome', 'retraitLome', 'transfertEnAttente'));
     }
 
     public function retraitUniquement()

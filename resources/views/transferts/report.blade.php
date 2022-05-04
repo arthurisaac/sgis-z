@@ -89,36 +89,39 @@
                         <table class="table table-striped table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
                             <thead>
                             <tr>
-                                <th>N°</th>
                                 <th>Code</th>
                                 <th>Emetteur</th>
                                 <th>Bénéficiaire</th>
                                 <th>Montant</th>
-                                <th>Date de transfert</th>
-                                <th></th>
-                                <th></th>
+                                <th>Transfert le</th>
+                                <th>Retrait le</th>
+                                <th class="col-1">Par</th>
+                                <th class="col-2"></th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($transferts as $transfert)
                                 <tr>
-                                    <td>{{ $transfert->id }}</td>
                                     <td>{{ $transfert->codeTransfert }}</td>
                                     <td>{{ $transfert->nomEmetteur }}</td>
                                     <td>{{ $transfert->nomBeneficiaire }}</td>
-                                    <td>{{ $transfert->montantTransfert }}</td>
+                                    <td>{{ number_format($transfert->montantTransfert) }}</td>
                                     <td>{{date('d/m/Y à H:i:s', strtotime($transfert->dateTransfert))}}</td>
-                                    <td>
-                                        <span
-                                            class="badge  @if ($transfert->confirmationRetrait == 1) badge-light-success @else badge-light-warning @endif fs-8 fw-bolder">
-                                            @if ($transfert->confirmationRetrait == 1) Transfert complété @else En
-                                            attente de retrait @endif
-                                        </span>
+                                    <td> @if ($transfert->confirmationRetrait == 1)
+                                        {{date('d/m/Y à H:i:s', strtotime($transfert->dateConfirmationRetrait))}}
+                                        @else <span
+                                        class="badge  badge-light-warning fs-8 fw-bolder">En attente de retrait</span>
+                                        @endif
                                     </td>
+                                    <td><small style="text-transform: capitalize;">{{ $transfert->deposerPar->name ?? ""}}</small> </td>
                                     <td>
                                         <button class="btn btn-sm btn-danger"
                                                 onclick="deleteOneTransfert({{$transfert->id}})"></button>
+                                                @if ($transfert->confirmationRetrait)
+                                        <a class="btn btn-sm btn-dark" href="{{ route('transfert.show', $transfert->id) }}"></a>
+                                        @else
                                         <a class="btn btn-sm btn-primary" href="{{ route('transfert.edit', $transfert->id) }}"></a>
+                                        @endif
                                     </td>
                                 </tr>
                             @endforeach
@@ -180,12 +183,17 @@
                         </div>
                     </div>
                     <div class="p-10 pt-0">
-                        <div>Total transferts : {{ number_format( $transferts->sum('montantTransfert') ) }}</div>
-                        <div>Total frais de transfert : {{ number_format( $transferts->sum('fraisTransfert') ) }}</div>
-                        <div>Total transfert {{ \Illuminate\Support\Facades\Auth::user()->city ?? 'Inconnnu' }}
-                            : {{ number_format( $transferts->where('transfertPar', \Illuminate\Support\Facades\Auth::user()->id)->sum('montantTransfert') ) }}</div>
-                        <div>Total retrait par {{ \Illuminate\Support\Facades\Auth::user()->city ?? 'Inconnu' }}
-                            : {{ number_format( $transferts->where('confirmationTransfertPar', \Illuminate\Support\Facades\Auth::user()->id)->sum('montantTransfert') ) }}</div>
+                        <div>Total transferts : <strong class="text-danger">{{ number_format( $transferts->sum('montantTransfert') ) }}</strong></div>
+                        {{--<div>Total frais de transfert : {{ number_format( $transferts->sum('fraisTransfert') ) }}</div>--}}
+                        <div>Total envoi Ouagadougou : {{ number_format( $envoiOuagadougou->sum('montantTransfert') ) }}</div>
+                        <div>Total retrait Ouagadougou : {{ number_format( $retraitOuagadougou->sum('montantTransfert') ) }}</div>
+                        <hr>
+                        <div>Total en attente : <span class="text-warning">{{ number_format( $transfertEnAttente->sum('montantTransfert') ) }}</span></div>
+                        <hr>
+                        <div>Total envoi Lomé : {{ number_format( $envoiLome->sum('montantTransfert') ) }}</div>
+                        <div>Total retrait Lomé : {{ number_format( $retraitLome->sum('montantTransfert') ) }}</div>
+                        <hr>
+                        {{--<div>Total retrait par Lomé : {{ number_format( $totalTransfertLome ) }}</div>--}}
                         <div>Transfert le plus élevé : {{ number_format($transferts->max('montantTransfert')) }}</div>
                         <div>Transfert le plus bas : {{ number_format($transferts->min('montantTransfert')) }}</div>
                     </div>
