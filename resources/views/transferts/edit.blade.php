@@ -81,7 +81,7 @@
                         <div class="d-flex flex-column mb-7 fv-row">
                             <label class="form-label fs-6 fw-bolder text-dark" for="codeTransfert">Code de
                                 transfert</label>
-                            <input type="number" name="codeTransfert" id="codeTransfert"
+                            <input type="text" name="codeTransfert" id="codeTransfert"
                                    value="{{ str_pad($transfert->codeTransfert, 4, '0', STR_PAD_LEFT) }}"
                                    class="form-control form-control-solid codeTransfert"/>
                         </div>
