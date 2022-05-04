@@ -149,6 +149,8 @@ class TransfertController extends Controller
         $transfert->telephoneEmetteur = $request->get('telephoneEmetteur');
         $transfert->documentEmetteurDelivreLe = $request->get('documentEmetteurDelivreLe');
         $transfert->documentBeneficiaireDelivreLe = $request->get('documentBeneficiaireDelivreLe');
+        $transfert->typeDocumentBeneficiaire = $request->get('typeDocumentBeneficiaire');
+        $transfert->numeroDocumentBeneficiaire = $request->get('numeroDocumentBeneficiaire');
 
         $transfert->save();
         return \response()->json(["message" => "Confirmé avec suucès", "success" => "success", "transfert" => $transfert]);

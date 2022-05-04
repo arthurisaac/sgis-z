@@ -113,6 +113,35 @@
                         </div>
                     </div>
                 </div>
+                <div id="confirmation-form">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="d-flex flex-column mb-6 fv-row">
+                                        <label class="form-label fs-6 fw-bolder text-dark" for="typeDocumentBeneficiaireEdit">Type document bénéficiaire</label>
+                                        <select name="typeDocumentBeneficiaire" id="typeDocumentBeneficiaireEdit"
+                                                class="form-select form-select-solid">
+                                            <option>{{ $transfert->typeDocumentBeneficiaire }}</option>
+                                            <option value="CNIB">CNIB</option>
+                                            <option value="PASSPORT">PASSPORT</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="d-flex flex-column mb-6 fv-row">
+                                        <label class="form-label fs-6 fw-bolder text-dark" for="numeroDocumentBeneficiaireEdit">Numéro document</label>
+                                        <input type="text" name="numeroDocumentBeneficiaire" value="{{ $transfert->numeroDocumentBeneficiaire }}"
+                                                id="numeroDocumentBeneficiaireEdit" class="form-control"/>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="d-flex flex-column mb-6 fv-row">
+                                        <label class="form-label fs-6 fw-bolder text-dark" for="documentBeneficiaireDelivreLe">Document délivré le</label>
+                                        <input type="text" name="documentBeneficiaireDelivreLe" value="{{ $transfert->documentBeneficiaireDelivreLe }}"
+                                                id="documentBeneficiaireDelivreLe" class="form-control"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 <button class="btn btn-primary" type="submit">Enregistrer</button>
             </form>
             <script>
