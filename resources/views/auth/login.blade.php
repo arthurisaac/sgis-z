@@ -10,8 +10,8 @@
             <h1 class="text-dark mb-3">{{ __('Connexion à ') }} {{ env('APP_NAME', '') }}</h1>
             <!--end::Title-->
             <!--begin::Link-->
-            <div class="text-gray-400 fw-bold fs-4">{{ __('Nouveau') }}?
-                <a href="{{ route('register') }}" class="link-primary fw-bolder">{{ __('Créer un compte') }}</a></div>
+            {{--<div class="text-gray-400 fw-bold fs-4">{{ __('Nouveau') }}?
+                <a href="{{ route('register') }}" class="link-primary fw-bolder">{{ __('Créer un compte') }}</a></div>--}}
             <!--end::Link-->
         </div>
         <!--begin::Heading-->

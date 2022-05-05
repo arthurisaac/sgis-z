@@ -113,7 +113,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="confirmation-form">
+                {{--<div id="confirmation-form">
                             <div class="row">
                                 <div class="col">
                                     <div class="d-flex flex-column mb-6 fv-row">
@@ -141,7 +141,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>--}}
                 <button class="btn btn-primary" type="submit">Enregistrer</button>
             </form>
             <script>
@@ -159,13 +159,18 @@
         <div class="row">
             <div class="col">
                 <div style="display: flex; align-items: center;">
-                    <img src="{{ asset('images/world_icon.png') }}" alt=""
-                         style="height: 50px; position:relative; top: -3px;">
+                    <img src="{{ asset('images/colombe.png') }}" alt="" style="height: 30px; position:relative; top: -3px;">
                     <div style="margin-left: 10px;">
-                        <h5>SINGBEOGO GLOBAL INTERNATIONAL SERVICE</h5>
-                        <h6 class="text-gray-700">BUREAU DE TRANSFERT D'ARGENT ET DE CHANGE</h6>
+                        <h5 class="p-0 m-0">SINGBEOGO GLOBAL INTERNATIONAL SERVICE</h5>
+                        <strong class="text-gray-700 p-0w">BUREAU DE TRANSFERT D'ARGENT ET DE CHANGE</strong>
                     </div>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <h4>Reçu</h4>
+                <br>
             </div>
         </div>
         <div class="row">
@@ -200,13 +205,10 @@
             <div class="col-4">
             </div>
             <div class="col text-center">
-                <h1 style="font-size: xx-large;">Code : <strong><span id="invoice-code"></span></strong></h6>
+                <h1 style="font-size: xx-large;">Code : <strong><span id="invoice-code"></span></strong></h1>
             </div>
             <div class="col-4">
                 <br>
-                <br>
-                <br>
-                <p class="text-center pt-2">Le caissier</p>
             </div>
         </div>
         <div class="row">
