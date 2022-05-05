@@ -83,6 +83,7 @@ $(document).ready(function () {
                     $("#invoice-receveur").html(nom);
 
                     $('#invoice-confirmation').printThis({
+                        printDelay: 500,
                         afterPrint: () => {
                             Swal.fire({
                                 icon: 'success',

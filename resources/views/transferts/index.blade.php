@@ -186,7 +186,7 @@
                                 <h6>Téléphone envoyeur: <span id="telephoneEmetteurShow"></span></h6>
                                 <h6>Téléphone receveur: <span id="telephoneBeneficiaireShow"></span></h6>
                                 <br>
-                                <h6>Montant  <span id="montantTransfertShow" class="text-danger"></span></h6>
+                                <h6>Montant <span id="montantTransfertShow" class="text-danger"></span></h6>
                                 <h6 class="p-4 bg-danger text-white" id="montantTransfertLetterShow"></h6>
                             </div>
                             <div class="col-1"></div>
@@ -260,7 +260,8 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="d-flex flex-column mb-6 fv-row">
-                                        <label class="form-label fs-6 fw-bolder text-dark" for="typeDocumentBeneficiaireEdit">Type document bénéficiaire</label>
+                                        <label class="form-label fs-6 fw-bolder text-dark"
+                                               for="typeDocumentBeneficiaireEdit">Type document bénéficiaire</label>
                                         <select name="typeDocumentBeneficiaire" id="typeDocumentBeneficiaireEdit"
                                                 class="form-select form-select-solid">
                                             <option value="CNIB">CNIB</option>
@@ -270,16 +271,18 @@
                                 </div>
                                 <div class="col">
                                     <div class="d-flex flex-column mb-6 fv-row">
-                                        <label class="form-label fs-6 fw-bolder text-dark" for="numeroDocumentBeneficiaireEdit">Numéro document</label>
+                                        <label class="form-label fs-6 fw-bolder text-dark"
+                                               for="numeroDocumentBeneficiaireEdit">Numéro document</label>
                                         <input type="text" name="numeroDocumentBeneficiaire"
-                                                id="numeroDocumentBeneficiaireEdit" class="form-control"/>
+                                               id="numeroDocumentBeneficiaireEdit" class="form-control"/>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="d-flex flex-column mb-6 fv-row">
-                                        <label class="form-label fs-6 fw-bolder text-dark" for="documentBeneficiaireDelivreLe">Document délivré le</label>
+                                        <label class="form-label fs-6 fw-bolder text-dark"
+                                               for="documentBeneficiaireDelivreLe">Document délivré le</label>
                                         <input type="text" name="documentBeneficiaireDelivreLe"
-                                                id="documentBeneficiaireDelivreLe" class="form-control"/>
+                                               id="documentBeneficiaireDelivreLe" class="form-control"/>
                                     </div>
                                 </div>
                             </div>
@@ -322,8 +325,7 @@
         <div class="row">
             <div class="col">
                 <div style="display: flex; align-items: center;">
-                    <img src="{{ asset('images/world_icon.png') }}" alt=""
-                         style="height: 50px; position:relative; top: -3px;">
+                    <img src="{{ asset('images/world_icon.png') }}" alt="" style="height: 50px; position:relative; top: -3px;">
                     <div style="margin-left: 10px;">
                         <h5>SINGBEOGO GLOBAL INTERNATIONAL SERVICE</h5>
                         <h6 class="text-gray-700">BUREAU DE TRANSFERT D'ARGENT ET DE CHANGE</h6>
@@ -447,7 +449,7 @@
         <div class="row pt-5">
             <div class="col-4">
                 <div style="height: 80px; width: 100%; border: 2px solid black;">
-                    <p class="text-center"> <span id="invoice-receveur"></span> </p>
+                    <p class="text-center"><span id="invoice-receveur"></span></p>
                 </div>
                 <p class="text-center pt-2">Le receveur</p>
             </div>

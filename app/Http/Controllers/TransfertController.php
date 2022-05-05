@@ -128,11 +128,9 @@ class TransfertController extends Controller
         $request->validate([
             'nomEmetteur' => 'required',
             'nomBeneficiaire' => 'required',
-            'numeroDocumentEmetteur' => 'required',
             'typeTransfert' => 'required',
             'montantTransfert' => 'required',
             'fraisTransfert' => 'required',
-            'telephoneBeneficiaire' => 'required',
         ]);
 
         $transfert = Transfert::query()->find($id);
@@ -178,16 +176,16 @@ class TransfertController extends Controller
         $transferts = Transfert::query()->orderByDesc('id')->get();
         $debut = $request->get('debut');
         $fin = $request->get('fin');
-        $envoiOuagadougou = Transfert::with('deposerPar')->whereHas('deposerPar', fn ($query) => 
+        $envoiOuagadougou = Transfert::with('deposerPar')->whereHas('deposerPar', fn ($query) =>
         $query->where('city', 'like', 'Ouagadougou'))->get();
-        $retraitOuagadougou = Transfert::query()->whereHas('retraitPar', fn ($query) => 
+        $retraitOuagadougou = Transfert::query()->whereHas('retraitPar', fn ($query) =>
         $query->where('city', 'like', 'Ouagadougou'))->get();
         $transfertEnAttente = Transfert::query()
         ->where('confirmationRetrait', '=', 0);
 
-        $envoiLome = Transfert::with('deposerPar')->whereHas('deposerPar', fn ($query) => 
+        $envoiLome = Transfert::with('deposerPar')->whereHas('deposerPar', fn ($query) =>
         $query->where('city', 'like', 'Lomé'))->get();
-        $retraitLome = Transfert::query()->whereHas('retraitPar', fn ($query) => 
+        $retraitLome = Transfert::query()->whereHas('retraitPar', fn ($query) =>
         $query->where('city', 'like', 'Lomé'))->get();
 
         if (isset($query) && $query == 'depot') {
