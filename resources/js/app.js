@@ -58,6 +58,8 @@ $(document).ready(function () {
                     $('#invoice').printThis({
                         printDelay: 500,
                         importCSS: true,
+                        importStyle: true,
+                        removeInline: false,
                         loadCSS: "/css/app.css",
                         afterPrint: () => {
                             Swal.fire({
@@ -164,6 +166,8 @@ $(document).ready(function () {
                     $('#invoice').printThis({
                         printDelay: 500,
                         importCSS: true,
+                        importStyle: true,
+                        removeInline: false,
                         loadCSS: "/css/app.css",
                         afterPrint: () => {
                             Swal.fire({
