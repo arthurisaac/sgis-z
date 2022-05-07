@@ -178,6 +178,7 @@
                         <div class="row">
                             <div class="col">
                                 <h6>Transfert: <span id="typeTransfertShow"></span></h6>
+                                <h6>Date de transfert: <span id="dateTransfertShow"></span></h6>
                                 <h6>Nom de l'envoyeur: <span id="nomEmetteurShow"></span></h6>
                                 <h6>Nom du reçeveur: <span id="nomBeneficiaireShow"></span></h6>
                                 <h6>Document envoyeur: <span id="typeDocumentEmetteurShow"></span></h6>
@@ -273,8 +274,8 @@
                                     <div class="d-flex flex-column mb-6 fv-row">
                                         <label class="form-label fs-6 fw-bolder text-dark"
                                                for="numeroDocumentBeneficiaireEdit">Numéro document</label>
-                                        <input type="text" name="numeroDocumentBeneficiaire"
-                                               id="numeroDocumentBeneficiaireEdit" class="form-control"/>
+                                        <input type="text" name="numeroDocumentBeneficiaire" id="numeroDocumentBeneficiaireEdit" class="form-control"  list="cnib"/>
+                                        <datalist id="cnib"></datalist>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -325,9 +326,9 @@
         <div class="row">
             <div class="col">
                 <div style="display: flex; align-items: center;">
-                    <img src="{{ asset('images/colombe.png') }}" alt="" style="height: 30px; position:relative; top: -3px;">
+                    <img src="{{ asset('images/colombe.png') }}" alt="" style="height: 50px; position:relative; top: -3px;">
                     <div style="margin-left: 10px;">
-                        <h5 class="p-0 m-0">SINGBEOGO GLOBAL INTERNATIONAL SERVICE</h5>
+                        <h4 class="p-0 m-0">SINGBEOGO GLOBAL INTERNATIONAL SERVICE</h4>
                         <strong class="text-gray-700 p-0w">BUREAU DE TRANSFERT D'ARGENT ET DE CHANGE</strong>
                     </div>
                 </div>
@@ -341,10 +342,13 @@
         </div>
         <div class="row">
             <div class="col">
+                <h6>Date : <strong><span id="invoice-date">{{ date('d-m-Y H:i') }}</span></strong></h6>
                 <h6>Montant : <strong><span id="invoice-montant"></span></strong></h6>
                 <h6>Frais : <strong><span id="invoice-frais"></span></strong></h6>
                 <h6>L'envoyeur : <strong><span id="invoice-emetteur"></span></strong></h6>
                 <h6>Le receveur : <strong><span id="invoice-beneficiaire"></span></strong></h6>
+                <h6>Tél. de l'envoyeur : <strong><span id="invoice-tel-emetteur"></span></strong></h6>
+                <h6>Tel. du receveur : <strong><span id="invoice-tel-beneficiaire"></span></strong></h6>
             </div>
             <div class="col" style="text-align: right;">
                 <div class="row">
@@ -360,9 +364,9 @@
                 <div class="row">
                     <div class="col-4">Lomé/Tel:</div>
                     <div class="col">
-                        <div>Tel : (228) 90 92 97 38</div>
                         <div>Tel : (228) 70 51 34 98</div>
                         <div>Tel : (228) 99 95 36 56</div>
+                        <div>Tel : (228) 90 92 97 38</div>
                     </div>
                 </div>
             </div>
@@ -428,9 +432,12 @@
         </div>
         <div class="row">
             <div class="col">
-                <h3>Code : <strong><span id="invoice-code-confirmation"></span></strong></h3>
-                <h3>Montant : <strong><span id="invoice-montant-confirmation"></span></strong></h3>
-                <h3>Nom du receveur : <strong><span id="invoice-beneficiaire-confirmation"></span></strong></h3>
+                <h6>Date : <strong><span id="invoice-date">{{ date('d-m-Y H:i') }}</span></strong></h6>
+                <h6>Code : <strong><span id="invoice-code-confirmation"></span></strong></h6>
+                <h6>Montant : <strong><span id="invoice-montant-confirmation"></span></strong></h6>
+                <h6>Nom du receveur : <strong><span id="invoice-beneficiaire-confirmation"></span></strong></h6>
+                <h6>Tél. de l'envoyeur : <strong><span id="invoice-tel-emetteur-confirmation"></span></strong></h6>
+                <h6>Tel. du receveur : <strong><span id="invoice-tel-beneficiaire-confirmation"></span></strong></h6>
                 {{--<h3>Nom du receveur : <strong><span id="invoice-receveur"></span></strong></h3>--}}
             </div>
             <div class="col" style="text-align: right;">
@@ -447,9 +454,9 @@
                 <div class="row">
                     <div class="col-4">Lomé/Tel:</div>
                     <div class="col">
-                        <div>Tel : (228) 90 92 97 38</div>
-                        <div>Tel : (228) 70 51 34 98</div>
                         <div>Tel : (228) 99 95 36 56</div>
+                        <div>Tel : (228) 70 51 34 98</div>
+                        <div>Tel : (228) 90 92 97 38</div>
                     </div>
                 </div>
             </div>

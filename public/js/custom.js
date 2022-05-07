@@ -6,6 +6,7 @@ function showOnTransfertModal(transfert) {
     $(this).trigger("reset");
     const MontantInletter = writtenNumber(transfert.montantTransfert, {lang: 'fr'});
     $("#numeroTransfertShow").html(transfert.numeroTransfert);
+    $("#dateTransfertShow").html(transfert.dateTransfert);
     $("#nomEmetteurShow").html(transfert.nomEmetteur);
     $("#nomBeneficiaireShow").html(transfert.nomBeneficiaire);
     $("#typeDocumentEmetteurShow").html(transfert.typeDocumentEmetteur);

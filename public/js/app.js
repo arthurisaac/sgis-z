@@ -2071,8 +2071,30 @@ $(document).ready(function () {
     });
 
     if (transfert) {
+      console.log(transfert);
       $("#nomEmetteur").val(transfert.nomEmetteur);
       $("#typeDocumentEmetteur").val(transfert.typeDocumentEmetteur);
+      $("#documentEmetteurDelivreLe").val(transfert.documentEmetteurDelivreLe);
+      $("#telephoneEmetteur").val(transfert.telephoneEmetteur);
+    } else {
+      $("#nomEmetteur").val("");
+      $("#typeDocumentEmetteur").val("");
+      $("#numeroDocumentEmetteur").val("");
+      $("#telephoneEmetteur").val("");
+    }
+  });
+  $("#numeroDocumentBeneficiaireEdit").on("change", function () {
+    var _this2 = this;
+
+    var transfert = transferts.find(function (t) {
+      return t.numeroDocumentEmetteur === _this2.value;
+    });
+
+    if (transfert) {
+      console.log(transfert);
+      $("#documentBeneficiaireDelivreLe").val(transfert.documentBeneficiaireDelivreLe);
+    } else {
+      $("#documentBeneficiaireDelivreLe").val("");
     }
   });
   $("#newTransfertForm").on("submit", function (e) {
@@ -2083,12 +2105,16 @@ $(document).ready(function () {
     var frais = $("#fraisTransfert").val();
     var emetteur = $("#nomEmetteur").val();
     var beneficiaire = $("#nomBeneficiaire").val();
+    var telEmetteur = $("#telephoneEmetteur").val();
+    var telBeneficiaire = $("#telephoneBeneficiaire").val();
     $("#invoice").removeClass("hide-invoice");
     $("#invoice-code").html(code);
-    $("#invoice-montant").html(montant.toLocaleString('fr-FR'));
-    $("#invoice-frais").html(frais.toLocaleString('fr-FR'));
+    $("#invoice-montant").html(montant.toLocaleString());
+    $("#invoice-frais").html(frais.toLocaleString());
     $("#invoice-emetteur").html(emetteur);
     $("#invoice-beneficiaire").html(beneficiaire);
+    $("#invoice-tel-emetteur").html(telEmetteur);
+    $("#invoice-tel-beneficiaire").html(telBeneficiaire);
     $.ajax({
       url: '/api/transfert',
       type: "POST",
@@ -2131,14 +2157,18 @@ $(document).ready(function () {
         if (response.success === 'success') {
           var transfert = response.transfert;
           var code = transfert.codeTransfert;
-          var montant = transfert.montantTransfert;
-          var nom = transfert.nomBeneficiaire;
+          var montant = transfert.montantTransfert; //const nom = transfert.nomBeneficiaire;
+
+          var telEmetteur = transfert.telephoneEmetteur;
+          var telBeneficiaire = transfert.telephoneBeneficiaire;
           $("#invoice-confirmation").removeClass("hide-invoice");
           $("#invoice-montant-confirmation").html(montant.toLocaleString());
           $("#invoice-code-confirmation").html(code);
-          $("#invoice-beneficiaire-confirmation").html(nom);
-          $("#invoice-receveur").html(nom);
+          $("#invoice-tel-emetteur-confirmation").html(telEmetteur);
+          $("#invoice-tel-beneficiaire-confirmation").html(telBeneficiaire);
           $('#invoice-confirmation').printThis({
+            printDelay: 500,
+            importCSS: true,
             afterPrint: function afterPrint() {
               Swal.fire({
                 icon: 'success',
