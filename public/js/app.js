@@ -2124,6 +2124,7 @@ $(document).ready(function () {
           $('#invoice').printThis({
             printDelay: 500,
             importCSS: true,
+            loadCSS: "/css/app.css",
             afterPrint: function afterPrint() {
               Swal.fire({
                 icon: 'success',
@@ -2131,8 +2132,7 @@ $(document).ready(function () {
                 showConfirmButton: false,
                 timer: 1500
               });
-              setTimeout(function () {
-                window.location.reload();
+              setTimeout(function () {//window.location.reload();
               }, 1000);
             }
           });
@@ -2199,12 +2199,16 @@ $(document).ready(function () {
     var frais = $("#fraisTransfert").val();
     var emetteur = $("#nomEmetteur").val();
     var beneficiaire = $("#nomBeneficiaire").val();
+    var telEmetteur = $("#telephoneEmetteur").val();
+    var telBeneficiaire = $("#telephoneBeneficiaire").val();
     $("#invoice").removeClass("hide-invoice");
     $("#invoice-code").html(code);
     $("#invoice-montant").html(montant.toLocaleString('fr-FR'));
     $("#invoice-frais").html(frais.toLocaleString('fr-FR'));
     $("#invoice-emetteur").html(emetteur);
     $("#invoice-beneficiaire").html(beneficiaire);
+    $("#invoice-tel-emetteur").html(telEmetteur);
+    $("#invoice-tel-beneficiaire").html(telBeneficiaire);
     $.ajax({
       url: '/transfert/' + id,
       type: "PATCH",
@@ -2214,6 +2218,7 @@ $(document).ready(function () {
           $('#invoice').printThis({
             printDelay: 500,
             importCSS: true,
+            loadCSS: "/css/app.css",
             afterPrint: function afterPrint() {
               Swal.fire({
                 icon: 'success',

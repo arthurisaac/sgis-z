@@ -58,6 +58,7 @@ $(document).ready(function () {
                     $('#invoice').printThis({
                         printDelay: 500,
                         importCSS: true,
+                        loadCSS: "/css/app.css",
                         afterPrint: () => {
                             Swal.fire({
                                 icon: 'success',
@@ -66,7 +67,7 @@ $(document).ready(function () {
                                 timer: 1500
                             });
                             setTimeout(() => {
-                                window.location.reload();
+                                //window.location.reload();
                             }, 1000);
                         }
                     });
@@ -141,6 +142,8 @@ $(document).ready(function () {
         const frais = $("#fraisTransfert").val();
         const emetteur = $("#nomEmetteur").val();
         const beneficiaire = $("#nomBeneficiaire").val();
+        const telEmetteur = $("#telephoneEmetteur").val();
+        const telBeneficiaire = $("#telephoneBeneficiaire").val();
 
         $("#invoice").removeClass("hide-invoice");
 
@@ -149,6 +152,8 @@ $(document).ready(function () {
         $("#invoice-frais").html(frais.toLocaleString('fr-FR'));
         $("#invoice-emetteur").html(emetteur);
         $("#invoice-beneficiaire").html(beneficiaire);
+        $("#invoice-tel-emetteur").html(telEmetteur);
+        $("#invoice-tel-beneficiaire").html(telBeneficiaire);
 
         $.ajax({
             url: '/transfert/' + id,
@@ -159,6 +164,7 @@ $(document).ready(function () {
                     $('#invoice').printThis({
                         printDelay: 500,
                         importCSS: true,
+                        loadCSS: "/css/app.css",
                         afterPrint: () => {
                             Swal.fire({
                                 icon: 'success',
