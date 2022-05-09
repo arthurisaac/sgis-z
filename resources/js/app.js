@@ -4,22 +4,16 @@ $(document).ready(function () {
     $("#numeroDocumentEmetteur").on("change", function () {
         const transfert = transferts.find(t => t.numeroDocumentEmetteur === this.value);
         if (transfert) {
-            console.log(transfert);
             $("#nomEmetteur").val(transfert.nomEmetteur);
             $("#typeDocumentEmetteur").val(transfert.typeDocumentEmetteur);
             $("#documentEmetteurDelivreLe").val(transfert.documentEmetteurDelivreLe);
             $("#telephoneEmetteur").val(transfert.telephoneEmetteur);
-        } else {
-            $("#nomEmetteur").val("");
-            $("#typeDocumentEmetteur").val("");
-            $("#telephoneEmetteur").val("");
         }
     });
 
     $("#numeroDocumentBeneficiaireEdit").on("change", function () {
         const transfert = transferts.find(t => t.numeroDocumentEmetteur === this.value);
         if (transfert) {
-            console.log(transfert);
             $("#documentBeneficiaireDelivreLe").val(transfert.documentBeneficiaireDelivreLe);
         } else {
             $("#documentBeneficiaireDelivreLe").val("");
