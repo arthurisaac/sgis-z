@@ -12,7 +12,6 @@ $(document).ready(function () {
         } else {
             $("#nomEmetteur").val("");
             $("#typeDocumentEmetteur").val("");
-            $("#numeroDocumentEmetteur").val("");
             $("#telephoneEmetteur").val("");
         }
     });
