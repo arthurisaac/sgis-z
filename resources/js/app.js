@@ -99,11 +99,12 @@ $(document).ready(function () {
 
                     const code = transfert.codeTransfert;
                     const montant = transfert.montantTransfert;
-                    //const nom = transfert.nomBeneficiaire;
+                    const nom = transfert.nomBeneficiaire;
                     const telEmetteur = transfert.telephoneEmetteur;
                     const telBeneficiaire = transfert.telephoneBeneficiaire;
                     $("#invoice-confirmation").removeClass("hide-invoice");
                     $("#invoice-montant-confirmation").html(montant.toLocaleString());
+                    $("#invoice-beneficiaire-confirmation").html(nom);
                     $("#invoice-code-confirmation").html(code);
                     $("#invoice-tel-emetteur-confirmation").html(telEmetteur);
                     $("#invoice-tel-beneficiaire-confirmation").html(telBeneficiaire);
