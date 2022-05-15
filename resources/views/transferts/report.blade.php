@@ -108,19 +108,25 @@
                                     <td>{{ number_format($transfert->montantTransfert) }}</td>
                                     <td>{{date('d/m/Y à H:i:s', strtotime($transfert->dateTransfert))}}</td>
                                     <td> @if ($transfert->confirmationRetrait == 1)
-                                        {{date('d/m/Y à H:i:s', strtotime($transfert->dateConfirmationRetrait))}}
+                                            {{date('d/m/Y à H:i:s', strtotime($transfert->dateConfirmationRetrait))}}
                                         @else <span
-                                        class="badge  badge-light-warning fs-8 fw-bolder">En attente de retrait</span>
+                                                class="badge  badge-light-warning fs-8 fw-bolder">En attente de retrait</span>
                                         @endif
                                     </td>
-                                    <td><small style="text-transform: capitalize;">{{ $transfert->deposerPar->name ?? ""}}</small> </td>
+                                    <td><small
+                                            style="text-transform: capitalize;">{{ $transfert->deposerPar->name ?? ""}}</small>
+                                    </td>
                                     <td>
-                                        <button class="btn btn-sm btn-danger"
-                                                onclick="deleteOneTransfert({{$transfert->id}})"></button>
-                                                @if ($transfert->confirmationRetrait)
-                                        <a class="btn btn-sm btn-dark" href="{{ route('transfert.show', $transfert->id) }}"></a>
+                                        @if (!$transfert->confirmationRetrait)
+                                            <button class="btn btn-sm btn-danger"
+                                                    onclick="deleteOneTransfert({{$transfert->id}})"></button>
+                                            @if ($transfert->confirmationRetrait)
+                                            @endif
+                                            <a class="btn btn-sm btn-dark"
+                                               href="{{ route('transfert.show', $transfert->id) }}"></a>
                                         @else
-                                        <a class="btn btn-sm btn-primary" href="{{ route('transfert.edit', $transfert->id) }}"></a>
+                                            <a class="btn btn-sm btn-primary"
+                                               href="{{ route('transfert.edit', $transfert->id) }}"></a>
                                         @endif
                                     </td>
                                 </tr>
@@ -149,14 +155,16 @@
                             <div class="row mb-10">
                                 <div class="col">
                                     <div class="d-flex flex-column mb-7 fv-row">
-                                        <label class="form-label fs-6 fw-bolder text-dark" for="dateDebut">Date debut</label>
+                                        <label class="form-label fs-6 fw-bolder text-dark" for="dateDebut">Date
+                                            debut</label>
                                         <input type="date" name="debut" id="dateDebut" value="{{ $debut }}"
                                                class="form-control form-control-solid numeroDocumentEmetteur"/>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="d-flex flex-column mb-7 fv-row">
-                                        <label class="form-label fs-6 fw-bolder text-dark" for="dateFin">Date fin</label>
+                                        <label class="form-label fs-6 fw-bolder text-dark" for="dateFin">Date
+                                            fin</label>
                                         <input type="date" name="fin" id="dateFin" value="{{ $fin }}"
                                                class="form-control form-control-solid numeroDocumentEmetteur"/>
                                     </div>
@@ -183,12 +191,18 @@
                         </div>
                     </div>
                     <div class="p-10 pt-0">
-                        <div>Total transferts : <strong class="text-danger">{{ number_format( $transferts->sum('montantTransfert') ) }}</strong></div>
+                        <div>Total transferts : <strong
+                                class="text-danger">{{ number_format( $transferts->sum('montantTransfert') ) }}</strong>
+                        </div>
                         {{--<div>Total frais de transfert : {{ number_format( $transferts->sum('fraisTransfert') ) }}</div>--}}
-                        <div>Total envoi Ouagadougou : {{ number_format( $envoiOuagadougou->sum('montantTransfert') ) }}</div>
-                        <div>Total retrait Ouagadougou : {{ number_format( $retraitOuagadougou->sum('montantTransfert') ) }}</div>
+                        <div>Total envoi Ouagadougou
+                            : {{ number_format( $envoiOuagadougou->sum('montantTransfert') ) }}</div>
+                        <div>Total retrait Ouagadougou
+                            : {{ number_format( $retraitOuagadougou->sum('montantTransfert') ) }}</div>
                         <hr>
-                        <div>Total en attente : <span class="text-warning">{{ number_format( $transfertEnAttente->sum('montantTransfert') ) }}</span></div>
+                        <div>Total en attente : <span
+                                class="text-warning">{{ number_format( $transfertEnAttente->sum('montantTransfert') ) }}</span>
+                        </div>
                         <hr>
                         <div>Total envoi Lomé : {{ number_format( $envoiLome->sum('montantTransfert') ) }}</div>
                         <div>Total retrait Lomé : {{ number_format( $retraitLome->sum('montantTransfert') ) }}</div>
