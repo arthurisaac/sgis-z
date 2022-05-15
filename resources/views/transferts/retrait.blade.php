@@ -255,6 +255,11 @@
         </div>
         <div class="row">
             <div class="col">
+                Orange Money : <strong> *144*3*294685*MONTANT#</strong> / Moov Money : <strong>*155*5*0073403*MONTANT#</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
                 <h6>Date : <strong><span id="invoice-date">{{ date('d-m-Y H:i') }}</span></strong></h6>
                 <h6>Montant : <strong><span id="invoice-montant"></span></strong></h6>
                 <h6>Frais : <strong><span id="invoice-frais"></span></strong></h6>
@@ -341,6 +346,11 @@
             <div class="col text-center">
                 <h4>Reçu</h4>
                 <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                Orange Money : <strong> *144*3*294685*MONTANT#</strong> / Moov Money : <strong>*155*5*0073403*MONTANT#</strong>
             </div>
         </div>
         <div class="row">
