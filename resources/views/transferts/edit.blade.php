@@ -130,7 +130,7 @@
         </div>
         <div class="row">
             <div class="col">
-                Orange Money : <strong> *144*3*294685*MONTANT#</strong> / Moov Money : <strong>*155*5*0073403*MONTANT#</strong>
+                Orange Money : <strong> *144*3*2946856*MONTANT#</strong> / Moov Money : <strong>*155*5*0073403*MONTANT#</strong>
             </div>
         </div>
         <div class="row">
