@@ -117,16 +117,14 @@
                                             style="text-transform: capitalize;">{{ $transfert->deposerPar->name ?? ""}}</small>
                                     </td>
                                     <td>
-                                        @if (!$transfert->confirmationRetrait)
-                                            <button class="btn btn-sm btn-danger"
-                                                    onclick="deleteOneTransfert({{$transfert->id}})"></button>
-                                            @if ($transfert->confirmationRetrait)
-                                            <a class="btn btn-sm btn-dark"
-                                            href="{{ route('transfert.show', $transfert->id) }}"></a>
-                                            @endif
+                                        @if ($transfert->confirmationRetrait)
+                                        <a class="btn btn-sm btn-dark"
+                                        href="{{ route('transfert.show', $transfert->id) }}"></a>
                                         @else
-                                            <a class="btn btn-sm btn-primary"
-                                               href="{{ route('transfert.edit', $transfert->id) }}"></a>
+                                        <a class="btn btn-sm btn-primary"
+                                        href="{{ route('transfert.edit', $transfert->id) }}"></a>
+                                        <button class="btn btn-sm btn-danger"
+                                                onclick="deleteOneTransfert({{$transfert->id}})"></button>
                                         @endif
                                     </td>
                                 </tr>
