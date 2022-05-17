@@ -121,9 +121,9 @@
                                             <button class="btn btn-sm btn-danger"
                                                     onclick="deleteOneTransfert({{$transfert->id}})"></button>
                                             @if ($transfert->confirmationRetrait)
-                                            @endif
                                             <a class="btn btn-sm btn-dark"
-                                               href="{{ route('transfert.show', $transfert->id) }}"></a>
+                                            href="{{ route('transfert.show', $transfert->id) }}"></a>
+                                            @endif
                                         @else
                                             <a class="btn btn-sm btn-primary"
                                                href="{{ route('transfert.edit', $transfert->id) }}"></a>
