@@ -362,6 +362,7 @@
                         <div>Tel : (226) 70 48 65 30</div>
                         <div>Tel : (226) 76 28 56 35</div>
                         <div>Tel : (226) 76 81 89 02</div>
+                        <div>Tel : (226) 78 26 94 48</div>
                     </div>
                 </div>
             </div>
@@ -457,6 +458,7 @@
                         <div>Tel : (226) 70 48 65 30</div>
                         <div>Tel : (226) 76 28 56 35</div>
                         <div>Tel : (226) 76 81 89 02</div>
+                        <div>Tel : (226) 78 26 94 48</div>
                     </div>
                 </div>
             </div>
