@@ -45,7 +45,7 @@
                         </div>
                     @endif
                     <div class="table-responsive">
-                        <table class="table table-striped table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+                        <table class="table table-striped table-row-dashed table-row-gray-300 align-middle gs-0 gy-4" id="table">
                             <thead>
                             <tr>
                                 <th>Code</th>
@@ -715,31 +715,6 @@
         <p class="text-center">{{ __("La SGIS-Z décline toute responsabilité s'il se révèle que les fonds proviennent d'origine criminelle ou de source illégale; Le déposant déclare que les fonds mis en dépôt ne sont pas criminelle, ne proviennent pas d'activités illégales et rassure connaître à qui il envoie.") }}</p>
 
     </div>
-    <br>
-    <div class="row">
-        <div class="col" style="text-align: right;">
-            <div class="row">
-                <div class="col-4" style="align-self: center;">Ouaga/Tel:</div>
-                <div class="col">
-                    <div>Tel : (226) 70 48 65 30</div>
-                    <div>Tel : (226) 76 28 56 35</div>
-                    <div>Tel : (226) 76 81 89 02</div>
-                    <div>Tel : (226) 78 26 94 48</div>
-                </div>
-            </div>
-        </div>
-        <div class="col" style="text-align: right;">
-            <div class="row">
-                <div class="col-4" style="align-self: center;">Lomé/Tel:</div>
-                <div class="col">
-                    <div>Tel : (228) 70 51 34 98</div>
-                    <div>Tel : (228) 99 95 36 56</div>
-                    <div>Tel : (228) 90 92 97 38</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <br>
     <script>
         const dailyStatsIncome = @json($dailyStatsIncome);
         const dailyStatsOutGoing = @json($dailyStatsOutGoing);

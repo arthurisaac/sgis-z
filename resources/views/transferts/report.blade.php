@@ -86,7 +86,7 @@
                     </div>
 
                     <div class="table-responsive">
-                        <table class="table table-striped table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+                        <table class="table table-striped table-row-dashed table-row-gray-300 align-middle gs-0 gy-4" id="table">
                             <thead>
                             <tr>
                                 <th>Code</th>
