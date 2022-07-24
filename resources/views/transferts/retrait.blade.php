@@ -426,6 +426,81 @@
         <p class="text-center">{{ __("La SGIS-Z décline toute responsabilité s'il se révèle que les fonds proviennent d'origine criminelle ou de source illégale; Le déposant déclare que les fonds mis en dépôt ne sont pas criminelle, ne proviennent pas d'activités illégales et rassure connaître à qui il envoie.") }}</p>
 
     </div>
+    <div id="invoice-thermical" class="p-5  hide-invoice">
+        <div class="row">
+            <div class="col">
+                <div style="display: flex; align-items: center;">
+                    <img src="{{ asset('images/colombe.png') }}" alt=""
+                         style="height: 30px; position:relative; top: -3px;">
+                    <div style="margin-left: 10px;">
+                        <h6 class="p-0 m-0">SINGBEOGO GLOBAL INTERNATIONAL SERVICE</h6>
+                        <strong class="text-gray-700 p-0w">BUREAU DE TRANSFERT D'ARGENT ET DE CHANGE</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <br>
+                <h2><strong>Reçu</strong></h2>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="text-start">
+                    <h4>Orange Money : <strong> *144*3*2946856*MONTANT#</strong></h4>
+                    <h4>Moov Money :<strong>*155*5*0073403*MONTANT#</strong></h4>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h4>Date : <strong><span id="t-invoice-date">{{ date('d-m-Y H:i') }}</span></strong></h4>
+                <h4>Montant : <strong><span id="t-invoice-montant"></span></strong></h4>
+                <h4>Frais : <strong><span id="t-invoice-frais"></span></strong></h4>
+                <h4>L'envoyeur : <strong><span id="t-invoice-emetteur"></span></strong></h4>
+                <h4>Le receveur : <strong><span id="t-invoice-beneficiaire"></span></strong></h4>
+                <h4>Tél. de l'envoyeur : <strong><span id="t-invoice-tel-emetteur"></span></strong></h4>
+                <h4>Tel. du receveur : <strong><span id="t-invoice-tel-beneficiaire"></span></strong></h4>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col text-center">
+                <h1 style="font-size: x-large;">Code : <strong><span id="t-invoice-code"></span></strong></h1>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col" style="text-align: right;">
+                <div class="row">
+                    <div class="col-4" style="align-self: center;">Ouaga/Tel:</div>
+                    <div class="col">
+                        <div>Tel : (226) 70 48 65 30</div>
+                        <div>Tel : (226) 76 28 56 35</div>
+                        <div>Tel : (226) 76 81 89 02</div>
+                        <div>Tel : (226) 78 26 94 48</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col" style="text-align: right;">
+                <div class="row">
+                    <div class="col-4" style="align-self: center;">Lomé/Tel:</div>
+                    <div class="col">
+                        <div>Tel : (228) 70 51 34 98</div>
+                        <div>Tel : (228) 99 95 36 56</div>
+                        <div>Tel : (228) 90 92 97 38</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <p class="text-sm-center">{{ __("La SGIS-Z décline toute responsabilité s'il se révèle que les fonds proviennent d'origine criminelle ou de source illégale; Le déposant déclare que les fonds mis en dépôt ne sont pas criminelle, ne proviennent pas d'activités illégales et rassure connaître à qui il envoie.") }}</p>
+        <br>
+        <p class="text-center">*******************</p>
+
+    </div>
 
     <script>
         const dailyStatsIncome = @json($dailyStatsIncome);

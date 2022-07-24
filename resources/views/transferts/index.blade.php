@@ -274,7 +274,8 @@
                                     <div class="d-flex flex-column mb-6 fv-row">
                                         <label class="form-label fs-6 fw-bolder text-dark"
                                                for="numeroDocumentBeneficiaireEdit">Numéro document</label>
-                                        <input type="text" name="numeroDocumentBeneficiaire" id="numeroDocumentBeneficiaireEdit" class="form-control"  list="cnib"/>
+                                        <input type="text" name="numeroDocumentBeneficiaire"
+                                               id="numeroDocumentBeneficiaireEdit" class="form-control" list="cnib"/>
                                         <datalist id="cnib"></datalist>
                                     </div>
                                 </div>
@@ -321,12 +322,69 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="printModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered mw-700px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Impression</h2>
+                    <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                        <span class="svg-icon svg-icon-1">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none">
+									<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+                                          transform="rotate(-45 6 17.3137)" fill="black"></rect>
+									<rect x="7.41422" y="6" width="16" height="2" rx="1"
+                                          transform="rotate(45 7.41422 6)" fill="black"></rect>
+								</svg>
+							</span>
+                    </div>
+                </div>
+                <div class="modal-body py-lg-10 px-lg-10">
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-primary btn-sm" id="printSimpleBtn">Imprimer</button>
+                            <button class="btn btn-info btn-sm" id="printThermicalBtn">Imprimer thermique</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="printConfirmModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered mw-700px">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Impression</h2>
+                    <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+                        <span class="svg-icon svg-icon-1">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                     fill="none">
+									<rect opacity="0.5" x="6" y="17.3137" width="16" height="2" rx="1"
+                                          transform="rotate(-45 6 17.3137)" fill="black"></rect>
+									<rect x="7.41422" y="6" width="16" height="2" rx="1"
+                                          transform="rotate(45 7.41422 6)" fill="black"></rect>
+								</svg>
+							</span>
+                    </div>
+                </div>
+                <div class="modal-body py-lg-10 px-lg-10">
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-primary btn-sm" id="printConfirmBtn">Imprimer</button>
+                            <button class="btn btn-info btn-sm" id="printConfirmThermicalBtn">Imprimer confirmation thermique</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div id="invoice" class="p-5 hide-invoice">
         <div class="row">
             <div class="col">
                 <div style="display: flex; align-items: center;">
-                    <img src="{{ asset('images/colombe.png') }}" alt="" style="height: 50px; position:relative; top: -3px;">
+                    <img src="{{ asset('images/colombe.png') }}" alt=""
+                         style="height: 50px; position:relative; top: -3px;">
                     <div style="margin-left: 10px;">
                         <h4 class="p-0 m-0">SINGBEOGO GLOBAL INTERNATIONAL SERVICE</h4>
                         <strong class="text-gray-700 p-0w">BUREAU DE TRANSFERT D'ARGENT ET DE CHANGE</strong>
@@ -342,7 +400,8 @@
         </div>
         <div class="row">
             <div class="col">
-                Orange Money : <strong> *144*3*2946856*MONTANT#</strong> / Moov Money : <strong>*155*5*0073403*MONTANT#</strong>
+                Orange Money : <strong> *144*3*2946856*MONTANT#</strong> / Moov Money :
+                <strong>*155*5*0073403*MONTANT#</strong>
             </div>
         </div>
         <div class="row">
@@ -422,7 +481,8 @@
         <div class="row">
             <div class="col">
                 <div style="display: flex; align-items: center;">
-                    <img src="{{ asset('images/colombe.png') }}" alt="" style="height: 30px; position:relative; top: -3px;">
+                    <img src="{{ asset('images/colombe.png') }}" alt=""
+                         style="height: 30px; position:relative; top: -3px;">
                     <div style="margin-left: 10px;">
                         <h5 class="p-0 m-0">SINGBEOGO GLOBAL INTERNATIONAL SERVICE</h5>
                         <strong class="text-gray-700 p-0w">BUREAU DE TRANSFERT D'ARGENT ET DE CHANGE</strong>
@@ -438,7 +498,8 @@
         </div>
         <div class="row">
             <div class="col">
-                Orange Money : <strong> *144*3*2946856*MONTANT#</strong> / Moov Money : <strong>*155*5*0073403*MONTANT#</strong>
+                Orange Money : <strong> *144*3*2946856*MONTANT#</strong> / Moov Money :
+                <strong>*155*5*0073403*MONTANT#</strong>
             </div>
         </div>
         <div class="row">
@@ -512,7 +573,173 @@
         <p class="text-center">{{ __("La SGIS-Z décline toute responsabilité s'il se révèle que les fonds proviennent d'origine criminelle ou de source illégale; Le déposant déclare que les fonds mis en dépôt ne sont pas criminelle, ne proviennent pas d'activités illégales et rassure connaître à qui il envoie.") }}</p>
 
     </div>
+    <div id="invoice-thermical" class="p-5  hide-invoice">
+        <div class="row">
+            <div class="col">
+                <div style="display: flex; align-items: center;">
+                    <img src="{{ asset('images/colombe.png') }}" alt=""
+                         style="height: 30px; position:relative; top: -3px;">
+                    <div style="margin-left: 10px;">
+                        <h6 class="p-0 m-0">SINGBEOGO GLOBAL INTERNATIONAL SERVICE</h6>
+                        <strong class="text-gray-700 p-0w">BUREAU DE TRANSFERT D'ARGENT ET DE CHANGE</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <br>
+                <h2><strong>Reçu</strong></h2>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="text-start">
+                    <h4>Orange Money : <strong> *144*3*2946856*MONTANT#</strong></h4>
+                    <h4>Moov Money :<strong>*155*5*0073403*MONTANT#</strong></h4>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h4>Date : <strong><span id="t-invoice-date">{{ date('d-m-Y H:i') }}</span></strong></h4>
+                <h4>Montant : <strong><span id="t-invoice-montant"></span></strong></h4>
+                <h4>Frais : <strong><span id="t-invoice-frais"></span></strong></h4>
+                <h4>L'envoyeur : <strong><span id="t-invoice-emetteur"></span></strong></h4>
+                <h4>Le receveur : <strong><span id="t-invoice-beneficiaire"></span></strong></h4>
+                <h4>Tél. de l'envoyeur : <strong><span id="t-invoice-tel-emetteur"></span></strong></h4>
+                <h4>Tel. du receveur : <strong><span id="t-invoice-tel-beneficiaire"></span></strong></h4>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col text-center">
+                <h1 style="font-size: x-large;">Code : <strong><span id="t-invoice-code"></span></strong></h1>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col" style="text-align: right;">
+                <div class="row">
+                    <div class="col-4" style="align-self: center;">Ouaga/Tel:</div>
+                    <div class="col">
+                        <div>Tel : (226) 70 48 65 30</div>
+                        <div>Tel : (226) 76 28 56 35</div>
+                        <div>Tel : (226) 76 81 89 02</div>
+                        <div>Tel : (226) 78 26 94 48</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col" style="text-align: right;">
+                <div class="row">
+                    <div class="col-4" style="align-self: center;">Lomé/Tel:</div>
+                    <div class="col">
+                        <div>Tel : (228) 70 51 34 98</div>
+                        <div>Tel : (228) 99 95 36 56</div>
+                        <div>Tel : (228) 90 92 97 38</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <p class="text-sm-center">{{ __("La SGIS-Z décline toute responsabilité s'il se révèle que les fonds proviennent d'origine criminelle ou de source illégale; Le déposant déclare que les fonds mis en dépôt ne sont pas criminelle, ne proviennent pas d'activités illégales et rassure connaître à qui il envoie.") }}</p>
+        <br>
+        <p class="text-center">*******************</p>
 
+    </div>
+    <div id="invoice-confirmation-thermical" class="p-5 hide-invoice">
+        <div class="row">
+            <div class="col">
+                <div style="display: flex; align-items: center;">
+                    <img src="{{ asset('images/colombe.png') }}" alt=""
+                         style="height: 30px; position:relative; top: -3px;">
+                    <div style="margin-left: 10px;">
+                        <h6 class="p-0 m-0">SINGBEOGO GLOBAL INTERNATIONAL SERVICE</h6>
+                        <strong class="text-gray-700 p-0w">BUREAU DE TRANSFERT D'ARGENT ET DE CHANGE</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <br>
+                <h2><strong>Reçu</strong></h2>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="text-start">
+                    <h4>Orange Money : <strong> *144*3*2946856*MONTANT#</strong></h4>
+                    <h4>Moov Money :<strong>*155*5*0073403*MONTANT#</strong></h4>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h4>Date : <strong><span id="t-invoice-date">{{ date('d-m-Y H:i') }}</span></strong></h4>
+                <h4>Code : <strong><span id="t-invoice-code-confirmation"></span></strong></h4>
+                <h4>Montant : <strong><span id="t-invoice-montant-confirmation"></span></strong></h4>
+                <h4>Nom du receveur : <strong><span id="t-invoice-beneficiaire-confirmation"></span></strong></h4>
+                <h4>Tél. de l'envoyeur : <strong><span id="t-invoice-tel-emetteur-confirmation"></span></strong></h4>
+                <h4>Tel. du receveur : <strong><span id="t-invoice-tel-beneficiaire-confirmation"></span></strong></h4>
+            </div>
+        </div>
+
+        <br>
+        <div class="row">
+            <div class="col" style="text-align: right;">
+                <div class="row">
+                    <div class="col-4" style="align-self: center;">Ouaga/Tel:</div>
+                    <div class="col">
+                        <div>Tel : (226) 70 48 65 30</div>
+                        <div>Tel : (226) 76 28 56 35</div>
+                        <div>Tel : (226) 76 81 89 02</div>
+                        <div>Tel : (226) 78 26 94 48</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col" style="text-align: right;">
+                <div class="row">
+                    <div class="col-4" style="align-self: center;">Lomé/Tel:</div>
+                    <div class="col">
+                        <div>Tel : (228) 70 51 34 98</div>
+                        <div>Tel : (228) 99 95 36 56</div>
+                        <div>Tel : (228) 90 92 97 38</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <p class="text-center">{{ __("La SGIS-Z décline toute responsabilité s'il se révèle que les fonds proviennent d'origine criminelle ou de source illégale; Le déposant déclare que les fonds mis en dépôt ne sont pas criminelle, ne proviennent pas d'activités illégales et rassure connaître à qui il envoie.") }}</p>
+
+    </div>
+    <br>
+    <div class="row">
+        <div class="col" style="text-align: right;">
+            <div class="row">
+                <div class="col-4" style="align-self: center;">Ouaga/Tel:</div>
+                <div class="col">
+                    <div>Tel : (226) 70 48 65 30</div>
+                    <div>Tel : (226) 76 28 56 35</div>
+                    <div>Tel : (226) 76 81 89 02</div>
+                    <div>Tel : (226) 78 26 94 48</div>
+                </div>
+            </div>
+        </div>
+        <div class="col" style="text-align: right;">
+            <div class="row">
+                <div class="col-4" style="align-self: center;">Lomé/Tel:</div>
+                <div class="col">
+                    <div>Tel : (228) 70 51 34 98</div>
+                    <div>Tel : (228) 99 95 36 56</div>
+                    <div>Tel : (228) 90 92 97 38</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
     <script>
         const dailyStatsIncome = @json($dailyStatsIncome);
         const dailyStatsOutGoing = @json($dailyStatsOutGoing);

@@ -65,7 +65,7 @@ class TransfertController extends Controller
             'documentEmetteurDelivreLe' => $request->get('documentEmetteurDelivreLe'),
         ]);
         $transfert->save();
-        event(new MyEvent('Transfert'));
+        //event(new MyEvent('Transfert'));
         return \response()->json(["success" => "success"]);
     }
 
