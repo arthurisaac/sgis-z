@@ -22,6 +22,8 @@ $(document).ready(function () {
 
     $("#newTransfertForm").on("submit", function (e) {
         e.preventDefault();
+        $("#invoice").removeClass("hide-invoice");
+        $("#invoice-thermical").removeClass("hide-invoice");
         const form = $(this);
 
         const code = $("#codeTransfert").val();
@@ -31,9 +33,6 @@ $(document).ready(function () {
         const beneficiaire = $("#nomBeneficiaire").val();
         const telEmetteur = $("#telephoneEmetteur").val();
         const telBeneficiaire = $("#telephoneBeneficiaire").val();
-
-        $("#invoice").removeClass("hide-invoice");
-        $("#invoice-thermical").removeClass("hide-invoice");
 
         $("#invoice-code").html(code);
         $("#invoice-montant").html(montant.toLocaleString());
@@ -118,6 +117,10 @@ $(document).ready(function () {
 
     $("#updateTransfertForm").on("submit", function (e) {
         e.preventDefault();
+
+        $("#invoice").removeClass("hide-invoice");
+        $("#invoice-thermical").removeClass("hide-invoice");
+
         const form = $(this);
 
         const id = $("#transfertID").val();
@@ -128,9 +131,6 @@ $(document).ready(function () {
         const beneficiaire = $("#nomBeneficiaire").val();
         const telEmetteur = $("#telephoneEmetteur").val();
         const telBeneficiaire = $("#telephoneBeneficiaire").val();
-
-        $("#invoice").removeClass("hide-invoice");
-        $("#invoice-thermical").removeClass("hide-invoice");
 
         $("#invoice-code").html(code);
         $("#invoice-montant").html(montant.toLocaleString('fr-FR'));
@@ -155,7 +155,7 @@ $(document).ready(function () {
             success: function (response) {
                 if (response.success === 'success') {
                     $("#transfertModal").modal('hide');
-                    $("#printConfirmModal").modal('show');
+                    $("#printModal").modal('show');
                 } else {
                     alert("Veuillez remplir tous les champs");
                 }
@@ -188,7 +188,7 @@ $(document).ready(function () {
     });
 
     $("#printThermicalBtn").on("click", function () {
-        $('#invoice-confirmation').printThis({
+        $('#invoice-thermical').printThis({
             printDelay: 500,
             importCSS: true,
             importStyle: true,
